@@ -12,6 +12,9 @@ Application app;
 
 void createHardcodedTestData()
 {
+	int pooop = 20;
+
+
 	// Setup store with some games
 	app.GetStore().games[0] = new Game("The Witness", "Explore a nice island and solve puzzles.", 2999, 5);
 	app.GetStore().games[1] = new Game("Braid", "A time twisting puzzle game.", 499, 15);
@@ -44,6 +47,8 @@ void createHardcodedTestData()
 
 	// TODO: We need a login menu for accounts, for now we log in the only account
 	app.LoginAccount("alice@shu.ac.uk", "password");
+
+
 }
 
 char showMainMenuAndGetUserChoice()
