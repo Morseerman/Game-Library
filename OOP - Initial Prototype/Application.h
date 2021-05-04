@@ -3,6 +3,7 @@
 #include "Account.h"
 #include "User.h"
 #include "Store.h"
+#include "ListT.h"
 
 class Application
 {
@@ -21,7 +22,8 @@ class Application
 		bool LoginUser(const std::string& username, const std::string& password);
 		void LogoutUser();
 		
-		Account* accounts[1] = { }; // TODO: this needs changing to a dynamic collection
+		//Account* accounts[1] = { }; // TODO: this needs changing to a dynamic collection
+		List<Account>* accounts;
 	private:
 		Store store;
 		Account* currentAccount;
