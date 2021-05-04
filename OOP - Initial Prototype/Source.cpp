@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "Admin.h"
 #include "Utils.h"
+#include "MainMenu.h"
 
 // TODO: Remove from global scope once menu system is integrated
 Application app;
@@ -39,11 +40,8 @@ void createHardcodedTestData()
 	u3->library[0] = new LibraryItem("2018-09-24", app.GetStore().games[3]);
 	u3->library[1] = new LibraryItem("2018-09-30", app.GetStore().games[6]);
 
-	// Make an account and attach the users
-	app.accounts[0] = new Account("alice@shu.com", "password", "2018-06-16");
-	app.accounts[0]->users[0] = u1;
-	app.accounts[0]->users[1] = u2;
-	app.accounts[0]->users[2] = u3;
+	
+	
 
 	// TODO: We need a login menu for accounts, for now we log in the only account
 	app.LoginAccount("alice@shu.ac.uk", "password");
@@ -265,7 +263,7 @@ void main()
 
 	// TODO: app.Load();
 
-	mainMenu(); // TODO: replace with proper menu system
+	MainMenu("MainMenu", &app); // TODO: replace with proper menu system
 
 	// TODO: app.Save();
 }
