@@ -153,10 +153,13 @@
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="LibraryItem.cpp" />
-    <ClCompile Include="ListT.cpp" />
+    <ClCompile Include="LoginUserMenu.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Store.cpp" />
+    <ClCompile Include="StoreMenu.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
@@ -168,8 +171,12 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="LibraryItem.h" />
     <ClInclude Include="ListT.h" />
+    <ClInclude Include="LoginUserMenu.h" />
+    <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Store.h" />
+    <ClInclude Include="StoreMenu.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="Utils.h" />
     <ClInclude Include="View.h" />

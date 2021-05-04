@@ -7,6 +7,7 @@
 #include "Admin.h"
 #include "Utils.h"
 #include "ListT.h"
+#include "MainMenu.h"
 
 // TODO: Remove from global scope once menu system is integrated
 Application app;
@@ -267,7 +268,9 @@ void main()
 
 	// TODO: app.Save();
 
-	List<int> testList;
+	MainMenu("Main Menu", &app);
+
+	/*List<int> testList;
 	bool isEqual = false;
 
 	testList.addInFront(1);
@@ -282,6 +285,6 @@ void main()
 
 	List<int> anotherList(testList);
 
-	anotherList.display();
+	anotherList.display();*/
 
 }
