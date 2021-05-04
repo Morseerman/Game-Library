@@ -268,6 +268,7 @@ void main()
 	// TODO: app.Save();
 
 	List<int> testList;
+	bool isEqual = false;
 
 	testList.addInFront(1);
 	testList.addInFront(2);
@@ -278,5 +279,9 @@ void main()
 	testList.deleteOne(3);
 
 	testList.display();
+
+	List<int> anotherList(testList);
+
+	anotherList.display();
 
 }

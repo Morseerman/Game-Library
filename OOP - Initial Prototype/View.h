@@ -46,12 +46,6 @@ template <class T>
 class List
 {
 public:
-    List();                                  // default constructor
-    List(const List<T>&);                    // copy constructor
-    List(const T&);                          // constructor to make a list from an item
-    ~List();                                 // destructor
-    List<T>& operator = (const List<T>&);    // copy assignment operator
-    bool operator == (const List<T>&) const; // compare with content of another list
     void deleteOne(const T&);                // delete first occurrence of item
     bool contains(const T&) const;           // check if an item is in list
 };

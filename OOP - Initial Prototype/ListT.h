@@ -46,8 +46,48 @@ template <class T>
 class List
 {
 public:
+
+    List() {};
+
+    List(const List<T>& n) {
+        head = n.head;
+        tail = n.tail;
+    }
+
+    List(const T&) {
+        Node<T>* temp = new Node<T>(n);
+        temp->next = head;
+        head = temp;
+    }
+
+    ~List() {
+        if (head == NULL) {
+            return;
+        }
+
+        if (head->next != 0) {
+            delete this->head->next;
+        }
+        delete this->head;
+    }
+
     bool List<T>::isEmpty() const {
         if (head == NULL) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    List<T>& operator = (const List<T>& n) {
+
+        head = other.head;
+        tail = other.tail;
+    }
+
+    bool operator == (const List<T>& n) const {
+        if (head == n.head && tail == n.tail) {
             return true;
         }
         else {
