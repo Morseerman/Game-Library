@@ -153,6 +153,7 @@
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="LibraryItem.cpp" />
+    <ClCompile Include="ListT.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Store.cpp" />
@@ -166,10 +167,12 @@
     <ClInclude Include="Date.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="LibraryItem.h" />
+    <ClInclude Include="ListT.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Store.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="Utils.h" />
+    <ClInclude Include="View.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

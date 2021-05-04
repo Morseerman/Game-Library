@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "Admin.h"
 #include "Utils.h"
+#include "ListT.h"
 
 // TODO: Remove from global scope once menu system is integrated
 Application app;
@@ -258,11 +259,24 @@ void mainMenu()
 void main()
 {
 	// TODO: Remove call to dummy data, instead use Load and Save
-	createHardcodedTestData();
+	//createHardcodedTestData();
 
 	// TODO: app.Load();
 
-	mainMenu(); // TODO: replace with proper menu system
+	//mainMenu(); // TODO: replace with proper menu system
 
 	// TODO: app.Save();
+
+	List<int> testList;
+
+	testList.addInFront(1);
+	testList.addInFront(2);
+	testList.addInFront(3);
+	testList.addInFront(4);
+	testList.addInFront(5);
+
+	testList.deleteOne(3);
+
+	testList.display();
+
 }
