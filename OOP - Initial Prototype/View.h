@@ -47,6 +47,5 @@ class List
 {
 public:
     void deleteOne(const T&);                // delete first occurrence of item
-    bool contains(const T&) const;           // check if an item is in list
 };
 

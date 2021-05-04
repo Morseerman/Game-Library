@@ -60,16 +60,6 @@ public:
         head = temp;
     }
 
-    ~List() {
-        if (head == NULL) {
-            return;
-        }
-
-        if (head->next != 0) {
-            delete this->head->next;
-        }
-        delete this->head;
-    }
 
     bool List<T>::isEmpty() const {
         if (head == NULL) {
@@ -97,8 +87,14 @@ public:
 
     void addInFront(const T& n) {
         Node<T>* temp = new Node<T>(n);
-        temp->next = head;
-        head = temp;
+        if (head != NULL) {
+            temp->next = head;
+            head = temp;
+        }
+        else {
+            return;
+        }
+
     }
 
     T first() const {
@@ -169,6 +165,21 @@ public:
             std::cout << temp->item << std::endl;
             temp = temp->next;
         }
+    }
+
+    bool contains(const T& n) const {
+        Node<T>* temp;
+        temp = head;
+        while (temp != NULL) {
+            if (temp->item == n) {
+                return true;
+            } 
+            if (temp == NULL) {
+                return false;
+            }
+            temp = temp->next;
+        }
+
     }
 
 private:
