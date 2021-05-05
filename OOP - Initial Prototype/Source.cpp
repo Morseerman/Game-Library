@@ -28,9 +28,8 @@ void createHardcodedTestData()
 	app.GetStore().games.addAtEnd(new Game("NUVAVULT", "A game where 2D and 3D collide.", 299, 18));
 	app.GetStore().games.addAtEnd(new Game("Path", "Draw nice shapes between 2 big dots.", 299, 15));
 
-	char str[] = "This is another test";
-	
-	Utils::recursiveToUpper(str, 0);
+	std::string test = "this is a test";
+	std::cout << Utils::recursiveToUpper(test, 0);
 
 	//std::cout << str << std::endl;
 
