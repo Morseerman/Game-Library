@@ -10,4 +10,21 @@ class Utils
     static char getCharFromUser();
     
     // TODO: 2 versions of ToUpper
+    static std::string loopToUpper(std::string str) {
+        std::string upperCase;
+        for (int it : str) {
+            if (it > 96 && it < 123) {
+                upperCase += char(it - 32);
+
+            }
+            else {
+                upperCase += char(it);
+            }
+        }
+        return upperCase;
+    }
+
+    static void recursiveToUpper(char* str, int it) {
+
+    }
 };

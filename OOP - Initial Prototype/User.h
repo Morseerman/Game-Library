@@ -12,6 +12,6 @@ class User
 	private:
 		std::string username;
 		std::string password;
-		//std::string created;  // TODO: replace with custom Date class, currently YYYY-MM-DD
+		//std::string created;  // TODO: replace with custom Date class, currently YYYY-MM-DD DONE
 		Date created;
 };

@@ -22,7 +22,7 @@ class Application
 		bool LoginUser(const std::string& username, const std::string& password);
 		void LogoutUser();
 		
-		//Account* accounts[1] = { }; // TODO: this needs changing to a dynamic collection
+		//Account* accounts[1] = { }; // TODO: this needs changing to a dynamic collection DONE
 		List<Account*> accounts;
 	private:
 		Store store;
