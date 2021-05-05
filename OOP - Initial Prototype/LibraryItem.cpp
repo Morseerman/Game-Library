@@ -1,7 +1,7 @@
 #include "LibraryItem.h"
 
-LibraryItem::LibraryItem(const Date& date, Game* game)
-	: purchased(purchased), game(game)
+LibraryItem::LibraryItem(int id, const Date& date, Game* game)
+	: id(id),purchased(purchased), game(game)
 {
 }
 

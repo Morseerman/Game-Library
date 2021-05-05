@@ -19,6 +19,9 @@
     <Filter Include="Source Files\User">
       <UniqueIdentifier>{eb2ce069-f216-4bb9-b2c5-e1a1fcdc69d9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{e904b60e-3dfc-4c12-919c-920e07fbec7e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -116,5 +119,10 @@
     <ClInclude Include="StoreMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="data.txt">
+      <Filter>Data</Filter>
+    </Text>
   </ItemGroup>
 </Project>
