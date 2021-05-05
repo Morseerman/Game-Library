@@ -6,7 +6,7 @@ Application::Application() : currentAccount(nullptr), currentUser(nullptr)
 
 Application::~Application()
 {
-	accounts->~List();
+	
 }
 
 bool Application::IsUserLoggedIn() const
@@ -37,7 +37,8 @@ Store& Application::GetStore()
 bool Application::LoginAccount(const std::string& email, const std::string& password)
 {
 	// TODO: This currently always logs you in as the first account
-	currentAccount = accounts->first();
+	//currentAccount = accounts->first();
+	currentAccount = accounts.first();
 
 	return true;
 }

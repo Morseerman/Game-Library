@@ -18,17 +18,18 @@ void createHardcodedTestData()
 	
 
 	// Setup store with some games
-	app.GetStore().games.addInFront(new Game("The Witness", "Explore a nice island and solve puzzles.", 2999, 5));
-	app.GetStore().games.addInFront(new Game("Braid", "A time twisting puzzle game.", 499, 15));
-	app.GetStore().games.addInFront(new Game("Factorio", "Build a complicated factory in space.", 1599, 12));
-	app.GetStore().games.addInFront(new Game("LIMBO", "Watch out for that spider.", 299, 12));
-	app.GetStore().games.addInFront(new Game("INSIDE", "What are those scientists even doing?!", 1299, 15));
-	app.GetStore().games.addInFront(new Game("Portal 2", "Play around with physics. Shoot the moon.", 1999, 15));
-	app.GetStore().games.addInFront(new Game("Half Life 3", "It's never coming out.", 5999, 18));
-	app.GetStore().games.addInFront(new Game("NUVAVULT", "A game where 2D and 3D collide.", 299, 18));
-	app.GetStore().games.addInFront(new Game("Path", "Draw nice shapes between 2 big dots.", 299, 15));
+	app.GetStore().games.addAtEnd(new Game("The Witness", "Explore a nice island and solve puzzles.", 2999, 5));
+	app.GetStore().games.addAtEnd(new Game("Braid", "A time twisting puzzle game.", 499, 15));
+	app.GetStore().games.addAtEnd(new Game("Factorio", "Build a complicated factory in space.", 1599, 12));
+	app.GetStore().games.addAtEnd(new Game("LIMBO", "Watch out for that spider.", 299, 12));
+	app.GetStore().games.addAtEnd(new Game("INSIDE", "What are those scientists even doing?!", 1299, 15));
+	app.GetStore().games.addAtEnd(new Game("Portal 2", "Play around with physics. Shoot the moon.", 1999, 15));
+	app.GetStore().games.addAtEnd(new Game("Half Life 3", "It's never coming out.", 5999, 18));
+	app.GetStore().games.addAtEnd(new Game("NUVAVULT", "A game where 2D and 3D collide.", 299, 18));
+	app.GetStore().games.addAtEnd(new Game("Path", "Draw nice shapes between 2 big dots.", 299, 15));
 
 	std::cout << app.GetStore().games.length() << std::endl;
+	std::cout << app.GetStore().games.first()->GetName();
 
 	// Create some users
 	Player* u1 = new Admin("Alice", "password", (16, 6, 2018));
@@ -38,19 +39,20 @@ void createHardcodedTestData()
 
 
 	// With some games in their library
-	//u1->library->addInFront(new LibraryItem((17, 6, 2018), app.GetStore().games.first()));
-	//u1->library->addInFront(new LibraryItem((17, 6, 2018), app.GetStore().games.last()));
-	//u2->library->addInFront(new LibraryItem((19, 9, 2018), app.GetStore().games.first()));
-	//u2->library->addInFront(new LibraryItem((19, 9, 2018), app.GetStore().games.last()));
-	//u3->library->addInFront(new LibraryItem((24, 9, 2018), app.GetStore().games.first()));
-	//u3->library->addInFront(new LibraryItem((30, 9, 2018), app.GetStore().games.last()));
+	u1->library.addAtEnd(new LibraryItem((17, 6, 2018), app.GetStore().games.last()));
+	u1->library.addAtEnd(new LibraryItem((17, 6, 2018), app.GetStore().games.first()));
+	u2->library.addAtEnd(new LibraryItem((19, 6, 2018), app.GetStore().games.last()));
+	u2->library.addAtEnd(new LibraryItem((19, 9, 2018), app.GetStore().games.last()));
+	u3->library.addAtEnd(new LibraryItem((24, 9, 2018), app.GetStore().games.last()));
+	u3->library.addAtEnd(new LibraryItem((30, 9, 2018), app.GetStore().games.last()));
+
 
 	//// Make an account and attach the users
 	////"2018-06-16"
-	//app.accounts->addInFront(new Account("alice@shu.com", "password", (16, 6, 2018)));
-	//app.accounts->first()->users->addInFront(u1);
-	//app.accounts->first()->users->addInFront(u2);
-	//app.accounts->first()->users->addInFront(u3);
+	app.accounts.addAtEnd(new Account("alice@shu.com", "password", (16, 6, 2018)));
+	app.accounts.first()->users->addAtEnd(u1);
+	app.accounts.first()->users->addAtEnd(u2);
+	app.accounts.first()->users->addAtEnd(u3);
 
 	//// TODO: We need a login menu for accounts, for now we log in the only account
 	//app.LoginAccount("alice@shu.ac.uk", "password");
@@ -272,7 +274,7 @@ void main()
 
 	// TODO: app.Save();
 
-	MainMenu("Main Menu", &app);
+	//MainMenu("Main Menu", &app);
 
 	/*List<int> testList;
 	bool isEqual = false;
