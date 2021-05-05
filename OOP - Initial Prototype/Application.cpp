@@ -38,7 +38,7 @@ bool Application::LoginAccount(const std::string& email, const std::string& pass
 {
 	// TODO: This currently always logs you in as the first account
 	//currentAccount = accounts->first();
-	currentAccount = accounts.first();
+	currentAccount = accounts.last();
 
 	return true;
 }
@@ -47,7 +47,8 @@ bool Application::LoginUser(const std::string& username, const std::string& pass
 {
 	// TODO: This currently always logs you in as the first user
 	// currentUser = currentAccount->users[0];
-	currentUser = currentAccount->users->first();
+	//currentUser = currentAccount->users.last();
+	currentUser = accounts.first()->users.first(); //NEEDS TO BE FIXED
 
 	return true;
 }

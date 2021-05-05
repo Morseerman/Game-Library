@@ -28,8 +28,7 @@ void createHardcodedTestData()
 	app.GetStore().games.addAtEnd(new Game("NUVAVULT", "A game where 2D and 3D collide.", 299, 18));
 	app.GetStore().games.addAtEnd(new Game("Path", "Draw nice shapes between 2 big dots.", 299, 15));
 
-	std::cout << app.GetStore().games.length() << std::endl;
-	std::cout << app.GetStore().games.first()->GetName();
+	std::cout << "Size of games list: " << app.GetStore().games.length() << std::endl;
 
 	// Create some users
 	Player* u1 = new Admin("Alice", "password", (16, 6, 2018));
@@ -41,18 +40,23 @@ void createHardcodedTestData()
 	// With some games in their library
 	u1->library.addAtEnd(new LibraryItem((17, 6, 2018), app.GetStore().games.last()));
 	u1->library.addAtEnd(new LibraryItem((17, 6, 2018), app.GetStore().games.first()));
-	u2->library.addAtEnd(new LibraryItem((19, 6, 2018), app.GetStore().games.last()));
+	u2->library.addAtEnd(new LibraryItem((19, 6, 2018), app.GetStore().games.first()));
 	u2->library.addAtEnd(new LibraryItem((19, 9, 2018), app.GetStore().games.last()));
-	u3->library.addAtEnd(new LibraryItem((24, 9, 2018), app.GetStore().games.last()));
+	u3->library.addAtEnd(new LibraryItem((24, 9, 2018), app.GetStore().games.first()));
 	u3->library.addAtEnd(new LibraryItem((30, 9, 2018), app.GetStore().games.last()));
+
+	std::cout << "Size of user 1s game list: " << u1->library.length() << std::endl;
 
 
 	//// Make an account and attach the users
 	////"2018-06-16"
 	app.accounts.addAtEnd(new Account("alice@shu.com", "password", (16, 6, 2018)));
-	app.accounts.first()->users->addAtEnd(u1);
-	app.accounts.first()->users->addAtEnd(u2);
-	app.accounts.first()->users->addAtEnd(u3);
+	app.accounts.first()->users.addAtEnd(u1);
+	//app.accounts.first()->users.addAtEnd(u2);
+	//app.accounts.first()->users.addAtEnd(u3);
+
+	std::cout << "List of users associated with account: " << app.accounts.length() << std::endl;
+	//std::cout << "List of users: " << app.accounts.first
 
 	//// TODO: We need a login menu for accounts, for now we log in the only account
 	//app.LoginAccount("alice@shu.ac.uk", "password");
@@ -115,7 +119,7 @@ char showLoginUserMenuAndGetUserChoice(Account *account)
 	std::cout << "                    \n";
 
 	// Output user list
-	account->users->display();
+	account->users.display();
 
 	// Output rest of menu
 	std::cout << "                    \n";
@@ -206,29 +210,29 @@ void loginUserMenu()
 	{
 		int choice = showLoginUserMenuAndGetUserChoice(app.GetCurrentAccount());
 
-		switch (choice)
-		{
-			case 'B': {
-				readyToGoBack = true;
-			} break;
-			default: {
-				//int index = choice - '1';
+		//switch (choice)
+		//{
+		//	case 'B': {
+		//		readyToGoBack = true;
+		//	} break;
+		//	default: {
+		//		int index = choice - '1';
 
-				//if (index >= 0 && index < 3) // TODO: Hardcoded numbers, change when using List<T>
-				//{
-				//	std::string username = app.GetCurrentAccount()->users[index]->GetUsername();
+		//		if (index >= 0 && index < 3) // TODO: Hardcoded numbers, change when using List<T>
+		//		{
+		//			std::string username = app.GetCurrentAccount()->users[index]->GetUsername();
 
-				//	std::cout << "  Enter password for " << username << ": ";
-					//if (app.LoginUser(username, Utils::getLineFromUser()))
-					//{
-					//	readyToGoBack = true;
-					//}
-				//}
+		//			std::cout << "  Enter password for " << username << ": ";
+		//			if (app.LoginUser(username, Utils::getLineFromUser()))
+		//			{
+		//				readyToGoBack = true;
+		//			}
+		//		}
 
 
 
-			} break;
-		}
+		//	} break;
+		//}
 	}
 }
 
@@ -274,7 +278,7 @@ void main()
 
 	// TODO: app.Save();
 
-	//MainMenu("Main Menu", &app);
+	MainMenu("Main Menu", &app);
 
 	/*List<int> testList;
 	bool isEqual = false;

@@ -7,5 +7,4 @@ Account::Account(const std::string& email, const std::string& password, const Da
 
 Account::~Account()
 {
-	users->~List();
 }

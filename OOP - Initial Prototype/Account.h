@@ -11,7 +11,7 @@ class Account
 		Account(const std::string&, const std::string&, const Date&);
 		~Account();
 		//User* users[3] = { }; // TODO: replace with custom List<T> class
-		List<User*>* users;
+		List<User*> users;
 	private:
 		std::string email;
 		std::string password;
