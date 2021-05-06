@@ -12,6 +12,8 @@ void LoginMenu::OutputOptions()
 	//	// adding 1 so the display is nicer for the user
 	//	Option(i + 1, userNames[i]);
 	//}
+
+	std::cout << "Enter email: " << std::endl;
 	
 }
 

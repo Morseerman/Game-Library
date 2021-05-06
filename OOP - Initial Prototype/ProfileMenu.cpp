@@ -12,7 +12,7 @@ void ProfileMenu::OutputOptions()
 	//	// adding 1 so the display is nicer for the user
 	//	Option(i + 1, userNames[i]);
 	//}
-	std::cout << "Credits: " << app->GetCurrentUser()->getCredits();
+	std::cout << "Credits: " << app->GetCurrentUser()->getCredits() << std::endl;
 	std::cout << "I) Purhcase 1 Credit" << std::endl;
 	std::cout << "O) Purhcase 10 Credit" << std::endl;
 	std::cout << "P) Purhcase 100 Credit" << std::endl;
