@@ -5,12 +5,12 @@
 #include <string>
 #include <vector>
 
-class LoginMenu : public Menu
+class ProfileMenu : public Menu
 {
 public:
-	LoginMenu(const std::string& title, Application* app);
+	ProfileMenu(const std::string& title, Application* app);
 	void OutputOptions() final;
 	bool HandleChoice(std::string choice) final;
 private:
-	std::vector<std::string> userNames = { "Alice", "Bob", "Charlie"};
-}; 
+	std::vector<std::string> userNames = { "Alice", "Bob", "Charlie" };
+};

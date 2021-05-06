@@ -14,6 +14,7 @@ class User
 		std::vector<LibraryItem*> getLibrary();
 		std::vector<LibraryItem*> library;
 		const std::string& GetPassword() const;
+		const int getCredits() const;
 	private:
 		std::string username;
 		std::string password;

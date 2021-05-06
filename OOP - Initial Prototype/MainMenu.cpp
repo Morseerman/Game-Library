@@ -1,5 +1,6 @@
 #include "MainMenu.h"
 #include "LoginMenu.h"
+#include "ProfileMenu.h"
 
 MainMenu::MainMenu(const std::string& title, Application* app) : Menu(title, app)
 {
@@ -86,7 +87,7 @@ bool MainMenu::HandleChoice(std::string choice)
 	{
 		if (app->IsUserLoggedIn())
 		{
-			BlockingMessage("Not implemented, press return to continue");
+			ProfileMenu(app->GetCurrentUser()->GetUsername() + "'s Profile", app);
 			// this needs to go to a profile page - similar to StoreMenu
 			// notice the if - this only works if somebody is logged in
 		}
