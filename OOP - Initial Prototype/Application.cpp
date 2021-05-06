@@ -1,4 +1,5 @@
 #include "Application.h"
+#include "Utils.h"
 
 Application::Application() : currentAccount(nullptr), currentUser(nullptr)
 {
@@ -23,6 +24,10 @@ Account* Application::GetCurrentAccount() const
 {
 	return currentAccount;
 }
+void Application::setCurrentUser(User* aUser)
+{
+	currentUser = aUser;
+}
 
 User* Application::GetCurrentUser() const
 {
@@ -38,9 +43,24 @@ bool Application::LoginAccount(const std::string& email, const std::string& pass
 {
 	// TODO: This currently always logs you in as the first account
 	//currentAccount = accounts->first();
-	currentAccount = accounts.last();
+	//currentAccount = accounts.contains();
 
-	return true;
+	
+	List<Account*> copyList = accounts;
+
+	while (copyList.length() != 0)
+	{
+		if (email == Utils::loopToUpper(copyList.first()->getEmail()) && password == copyList.first()->getPassword())
+		{
+			currentAccount = accounts.first();
+			return true;
+		}
+
+		copyList.deleteFirst();
+
+	}
+
+	return false;
 }
 
 bool Application::LoginUser(const std::string& username, const std::string& password)
@@ -48,8 +68,30 @@ bool Application::LoginUser(const std::string& username, const std::string& pass
 	// TODO: This currently always logs you in as the first user
 	// currentUser = currentAccount->users[0];
 	//currentUser = currentAccount->users.last();
-	currentUser = accounts.first()->users.first(); //NEEDS TO BE FIXED
+	
+	List<User*> copyList = accounts.first()->getUsers();
+	int counter = 1;
 
+	while (copyList.length() != 0)
+	{
+		std::cout << counter << ") " << copyList.first()->GetUsername() << std::endl;
+		copyList.deleteFirst();
+		counter++;
+	}
+
+
+	while (copyList.length() != 0)
+	{
+		if (username == Utils::loopToUpper(copyList.first()->GetUsername()) && password == copyList.first()->GetPassword())
+		{
+			currentAccount = accounts.first();
+			return true;
+		}
+
+		copyList.deleteFirst();
+
+	}
+			
 	return true;
 }
 

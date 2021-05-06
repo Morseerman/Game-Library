@@ -1,4 +1,5 @@
 #include "MainMenu.h"
+#include "LoginMenu.h"
 
 MainMenu::MainMenu(const std::string& title, Application* app) : Menu(title, app)
 {
@@ -20,15 +21,49 @@ void MainMenu::OutputOptions()
 	}
 }
 
-bool MainMenu::HandleChoice(char choice)
+bool MainMenu::HandleChoice(std::string choice)
 {
-	switch (choice)
-	{
-	case 'S':
+	//switch (choice)
+	//{
+	//case 'S':
+	//{
+	//	StoreMenu("STORE", app);
+	//} break;
+	//case 'L':
+	//{
+	//	if (app->IsUserLoggedIn())
+	//	{
+	//		std::string answer = Question("Are you sure?");
+	//		if (answer == "y" || answer == "Y")
+	//		{
+	//			app->LogoutUser();  //-------------WILL NEEED TO CHANGE
+	//		}
+	//	}
+	//	else
+	//	{
+	//		// this would need to go to a LoginMenu - similar to StoreMenu
+	//		// instead we just set logged in to true on the main app object
+
+	//		//app->LoginUser("Bob", "password"); //----------------WILL NEEED TO CHANGE
+	//		LoginMenu("Login", app);
+	//	}
+	//} break;
+	//case 'P':
+	//{
+	//	if (app->IsUserLoggedIn())
+	//	{
+	//		BlockingMessage("Not implemented, press return to continue");
+	//		// this needs to go to a profile page - similar to StoreMenu
+	//		// notice the if - this only works if somebody is logged in
+	//	}
+	//} break;
+	//}
+
+	if (choice == "S")
 	{
 		StoreMenu("STORE", app);
-	} break;
-	case 'L':
+	}
+	else if (choice == "L")
 	{
 		if (app->IsUserLoggedIn())
 		{
@@ -43,10 +78,11 @@ bool MainMenu::HandleChoice(char choice)
 			// this would need to go to a LoginMenu - similar to StoreMenu
 			// instead we just set logged in to true on the main app object
 
-			app->LoginUser("Bob", "password"); //----------------WILL NEEED TO CHANGE
+			//app->LoginUser("Bob", "password"); //----------------WILL NEEED TO CHANGE
+			LoginMenu("Login", app);
 		}
-	} break;
-	case 'P':
+	}
+	else if (choice == "P")
 	{
 		if (app->IsUserLoggedIn())
 		{
@@ -54,8 +90,8 @@ bool MainMenu::HandleChoice(char choice)
 			// this needs to go to a profile page - similar to StoreMenu
 			// notice the if - this only works if somebody is logged in
 		}
-	} break;
 	}
+	
 
 	return false;
 }

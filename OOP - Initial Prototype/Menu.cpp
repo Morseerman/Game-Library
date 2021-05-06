@@ -16,9 +16,9 @@ void Menu::Paint()
 		Option('B', "Back");
 		Footer();
 
-		char choice = Utils::getCharFromUser(); //MAY NEED TO CHANGE
+		std::string choice = Utils::getUpperLineFromUser(); //MAY NEED TO CHANGE
 
-		if (choice == 'B')
+		if (choice == "B")
 		{
 			readyToGoBack = true;
 		}
@@ -28,6 +28,7 @@ void Menu::Paint()
 		}
 	}
 }
+
 
 void Menu::Line()
 {

@@ -15,6 +15,7 @@ class Application
 		bool IsUserLoggedIn() const;
 		Account* GetCurrentAccount() const;
 		User* GetCurrentUser() const;
+		void setCurrentUser(User* aUser);
 
 		Store& GetStore();
 

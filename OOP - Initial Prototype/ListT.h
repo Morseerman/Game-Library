@@ -54,7 +54,7 @@ public:
         tail = n.tail;
     }
 
-    List(const T&) {
+    List(const T& n) {
         Node<T>* temp = new Node<T>(n);
         temp->next = head;
         head = temp;
@@ -161,11 +161,15 @@ public:
     void display() {
         Node<T>* temp;
         temp = head;
+        int counter = 1;
         while (temp != NULL) {
-            std::cout << temp->item << std::endl;
+            std::cout << counter << ": " << temp->item << std::endl;
+            counter++;
             temp = temp->next;
         }
     }
+  
+
 
     bool contains(const T& n) const {
         Node<T>* temp;
@@ -180,7 +184,7 @@ public:
             temp = temp->next;
         }
 
-    }
+    }    
 
 private:
     Node<T>* head = nullptr;                           // point onto first item (nullptr if empty)

@@ -60,10 +60,10 @@
     <ClCompile Include="MainMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LoginUserMenu.cpp">
+    <ClCompile Include="StoreMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StoreMenu.cpp">
+    <ClCompile Include="LoginMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -110,10 +110,10 @@
     <ClInclude Include="MainMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LoginUserMenu.h">
+    <ClInclude Include="StoreMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="StoreMenu.h">
+    <ClInclude Include="LoginMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -19,7 +19,7 @@ public:
 	// Use this function to handle the possible choices from your menu
 	// Returning true means you are ready to go back to the previous menu
 	// Returning false means you will stay on the same menu
-	virtual bool HandleChoice(char) = 0;
+	virtual bool HandleChoice(std::string) = 0;
 
 protected:
 	Application* app;                                   // each menu will store a pointer to the main application
@@ -31,6 +31,7 @@ protected:
 	void Option(char id, const std::string& option);	// output menu option
 	std::string Question(const std::string& question);	// output a question and return the user's input
 	void BlockingMessage(const std::string& message);	// output message and wait for the user to press enter
+	
 
 private:
 	std::string title;

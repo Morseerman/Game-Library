@@ -56,8 +56,12 @@ void createHardcodedTestData()
 
 	//// Make an account and attach the users
 	////"2018-06-16"
-	app.accounts.addAtEnd(new Account("alice@shu.com", "password", (16, 6, 2018)));
+	app.accounts.addAtEnd(new Account("e", "p", (16, 6, 2018)));
+	
+
 	app.accounts.first()->users.addAtEnd(u1);
+	app.accounts.first()->users.addAtEnd(u2);
+	app.accounts.first()->users.addAtEnd(u3);
 	//app.accounts.first()->users.addAtEnd(u2);
 	//app.accounts.first()->users.addAtEnd(u3);
 
@@ -278,13 +282,16 @@ void main()
 	// TODO: Remove call to dummy data, instead use Load and Save
 	createHardcodedTestData();
 
+
+
 	// TODO: app.Load();
 
 	//mainMenu(); // TODO: replace with proper menu system
 
 	// TODO: app.Save();
 
-	//MainMenu("Main Menu", &app);
+	MainMenu("Main Menu", &app);
+	
 
 	/*List<int> testList;
 	bool isEqual = false;
