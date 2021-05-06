@@ -55,6 +55,18 @@ User* Utils::getUserFromList(int index, List<Account*> accounts)
     return copyList.first();
 }
 
+Game* Utils::getGame(int index, List<Game*> games)
+{
+
+    List<Game*> copyList = games;
+
+    for (int i = 0; i < index - 1; i++)
+    {
+        copyList.deleteFirst();
+    }
+    return copyList.first();
+}
+
 int Utils::stringToInt(std::string numString)
 {
     int temp;
@@ -62,4 +74,13 @@ int Utils::stringToInt(std::string numString)
     ssInputOption << numString;
     ssInputOption >> temp;
     return temp;
+}
+
+int Utils::returnRandomNumber()
+{
+    srand((unsigned)time(0));
+    int randomNumber;
+    randomNumber = 10 + (rand() % 60) + 1;
+    std::cout << randomNumber << std::endl;
+    return randomNumber;
 }

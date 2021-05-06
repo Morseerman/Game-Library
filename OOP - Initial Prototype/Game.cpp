@@ -23,3 +23,6 @@ int Game::GetCost() const
 {
 	return cost;
 }
+int Game::getId() {
+	return id;
+}

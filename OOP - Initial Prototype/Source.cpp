@@ -181,16 +181,16 @@ void parseFileData() {
 
 			}
 			else if (line == "LIBRARY-ITEM") { //setup library item
-				std::string id5, created5, unknown5;
+				std::string id5, created5, playTime;
 				std::string delimiter5 = "-";
-				int intYear5, intMonth5, intDay5, intId5;
+				int intYear5, intMonth5, intDay5, intId5, intPlayTime;
 				std::getline(dataFile, id5);
 				std::getline(dataFile, created5);
-				std::getline(dataFile, unknown5);
+				std::getline(dataFile, playTime);
 				std::string year5 = created5.substr(0, created5.find(delimiter5));
 				std::string month5 = created5.substr(1, created5.find(delimiter5));
 				std::string day5 = created5.substr(2, created5.find(delimiter5));
-				std::stringstream ssYear5, ssMonth5, ssDay5, ssId5;
+				std::stringstream ssYear5, ssMonth5, ssDay5, ssId5, ssPlayTime;
 				ssYear5 << year5;
 				ssYear5 >> intYear5;
 				ssMonth5 << month5;
@@ -199,10 +199,13 @@ void parseFileData() {
 				ssDay5 >> intDay5;
 				ssId5 << id5;
 				ssId5 >> intId5;
+				ssPlayTime << playTime;
+				ssPlayTime >> intPlayTime;
 				Date actualDate5(intDay5, intMonth5, intYear5);
 				//u1->library.addAtEnd(new LibraryItem(1,(17, 6, 2018), app.GetStore().games.last()));
 				//u1->library.addAtEnd(new LibraryItem(2,(17, 6, 2018), app.GetStore().games.first());
-				app.accounts.last()->users.last()->library.push_back(new LibraryItem(intId5, actualDate5, app.GetStore().games.last()));
+
+				app.accounts.last()->users.last()->library.push_back(new LibraryItem(intId5, actualDate5, Utils::getGame(intId5, app.GetStore().games), intPlayTime));
 			}
 		}
 		std::cout << "The total amount of games is: " << app.GetStore().games.length() << std::endl;
@@ -422,7 +425,6 @@ void main()
 	// TODO: Remove call to dummy data, instead use Load and Save
 	//createHardcodedTestData();
 	parseFileData();
-
 
 
 	// TODO: app.Load();

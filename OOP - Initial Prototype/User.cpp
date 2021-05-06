@@ -21,3 +21,20 @@ const int User::getCredits() const
 {
 	return credits;
 }
+int User::incrementCredits(std::string choice) {
+	if (choice == "I") {
+		credits += 1;
+		return credits;
+	}
+	if (choice == "O") {
+		credits += 10;
+		return credits;
+	}
+	if (choice == "P") {
+		credits += 100;
+		return credits;
+	}
+	else {
+		return credits;
+	}
+}

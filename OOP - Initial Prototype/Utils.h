@@ -3,6 +3,9 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>    
 #include "User.h"
 #include "ListT.h"
 #include "Account.h"
@@ -22,5 +25,8 @@ public:
     static std::string getUpperLineFromUser();
 
     static int stringToInt(std::string numString);
+    static Game* getGame(int index, List<Game*> games);
+
+    static int returnRandomNumber();
 
 };
