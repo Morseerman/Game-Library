@@ -421,7 +421,7 @@ void main()
 	
 	// TODO: Remove call to dummy data, instead use Load and Save
 	//createHardcodedTestData();
-	//parseFileData();
+	parseFileData();
 
 
 
