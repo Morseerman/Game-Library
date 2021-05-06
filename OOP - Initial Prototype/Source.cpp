@@ -417,7 +417,7 @@ void main()
 	
 	// TODO: Remove call to dummy data, instead use Load and Save
 	//createHardcodedTestData();
-	parseFileData();
+	//parseFileData();
 
 	// TODO: app.Load();
 
@@ -425,7 +425,7 @@ void main()
 
 	// TODO: app.Save();
 
-	//MainMenu("Main Menu", &app);
+	MainMenu("Main Menu", &app);
 
 	/*List<int> testList;
 	bool isEqual = false;
