@@ -290,7 +290,7 @@ void main()
 
 	// TODO: app.Save();
 
-	MainMenu("Main Menu", &app);
+	
 	
 
 	/*List<int> testList;
