@@ -84,5 +84,5 @@ void Menu::Footer()
 {
 	std::cout << '\n';
 	std::cout << '\n';
-	std::cout << "  >>> ";
+	std::cout << "Email:  ";
 }

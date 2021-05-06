@@ -12,7 +12,7 @@ void LoginMenu::OutputOptions()
 	//	// adding 1 so the display is nicer for the user
 	//	Option(i + 1, userNames[i]);
 	//}
-	std::cout << "Enter Email\n\n";
+	
 }
 
 bool LoginMenu::HandleChoice(std::string choice)
@@ -22,13 +22,19 @@ bool LoginMenu::HandleChoice(std::string choice)
 	// this reverses the + 1 above and lets us do the range check below
 	//int index = choice - '1';
 
-	
+	system("CLS");
+	std::cout << "  -= LOGIN =-       \n";
+	std::cout << std::endl;
 	std::cout << "Enter Password\n";
 	std::string inputAccountPassword = Utils::getLineFromUser();
 
 	//logging into account
 	if (app->LoginAccount(choice, inputAccountPassword) == true)
 	{
+		system("CLS");
+		std::cout << "  -= LOGIN =-       \n";
+		std::cout << std::endl;
+		std::cout << "Select a user: " << std::endl;
 		for (int i = 0; i < userNames.size(); i++)
 		{
 			// adding 1 so the display is nicer for the user
@@ -40,6 +46,9 @@ bool LoginMenu::HandleChoice(std::string choice)
 		
 		//logging into user
 		User* selectedUser = Utils::getUserFromList(Utils::stringToInt(inputOption), app->accounts);
+		system("CLS");
+		std::cout << "  -= LOGIN =-       \n";
+		std::cout << std::endl;
 		std::cout << "Welcome: " << selectedUser->GetUsername() << ". Please enter your password.\n";
 
 		std::string inputUserPassword = Utils::getLineFromUser(); 

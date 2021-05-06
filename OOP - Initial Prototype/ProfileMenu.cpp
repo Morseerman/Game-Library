@@ -13,6 +13,9 @@ void ProfileMenu::OutputOptions()
 	//	Option(i + 1, userNames[i]);
 	//}
 	std::cout << "Credits: " << app->GetCurrentUser()->getCredits();
+	std::cout << "I) Purhcase 1 Credit" << std::endl;
+	std::cout << "O) Purhcase 10 Credit" << std::endl;
+	std::cout << "P) Purhcase 100 Credit" << std::endl;
 	
 }
 
