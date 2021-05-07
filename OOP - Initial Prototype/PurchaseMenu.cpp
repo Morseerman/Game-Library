@@ -34,7 +34,7 @@ bool PurchaseMenu::HandleChoice(std::string choice)
 {
 	if (choice == "P") {
 		for (int i = 1; i < app->GetStore().games.length(); i++) {
-			if (Utils::getGame(i, app->GetStore().games)->getId() ==  userGameChoice - 1) {
+			if (Utils::getGame(i, app->GetStore().games)->getId() == userGameChoice - 1) {
 				//conditions for buying the game
 				if (Utils::getGame(i, app->GetStore().games)->GetCost() > app->GetCurrentUser()->getCredits()) {
 					std::cout << "You have insufficient funds to purchase this game" << std::endl;
@@ -51,9 +51,10 @@ bool PurchaseMenu::HandleChoice(std::string choice)
 					}
 					time_t t = time(NULL);
 					tm* timePtr = localtime(&t);
-					app->GetCurrentUser()->library.push_back(new LibraryItem(10, (timePtr->tm_mday, timePtr->tm_mon, timePtr->tm_year), Utils::getGame(i, app->GetStore().games), 0));
+					app->GetCurrentUser()->library.push_back(new LibraryItem(10, (timePtr->tm_mday, timePtr->tm_mon, timePtr->tm_year), Utils::getGame(userGameChoice, app->GetStore().games), 0));
 					app->GetCurrentUser()->subtractCredits(Utils::getGame(i, app->GetStore().games)->GetCost());
 					std::cout << "Your purchase is successful" << std::endl;
+					Utils::getLineFromUser();
 					std::fstream dataFile;
 					std::string line;
 					std::string strGameId, strDay, strMon, strYear;
@@ -71,21 +72,21 @@ bool PurchaseMenu::HandleChoice(std::string choice)
 					ssyear << year;
 					ssyear >> strYear;
 
-					
+
 					dataFile.open("data.txt", std::ios::app);
 					dataFile << "\nLIBRARY-ITEM\n";
 					dataFile << strGameId + "\n";
 					dataFile << strYear + "-" + strMon + "-" + strYear + "\n";
 					dataFile << "0";
 					dataFile.close();
-					Utils::getLineFromUser();
 					return true;
 				}
+
 
 			}
 
 		}
-	} 
+	}
 	if (choice == "B")
 	{
 		return true;
