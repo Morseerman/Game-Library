@@ -12,10 +12,13 @@ class Game
 		const std::string& GetDescription() const;
 		int GetCost() const;
 		int getId();
+		int getAgeRating();
+
 	private:
 		int id;
 		std::string name;
 		std::string description;
 		int cost;
 		int ageRating;
+
 };

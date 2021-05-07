@@ -28,5 +28,9 @@ public:
     static Game* getGame(int index, List<Game*> games);
 
     static int returnRandomNumber();
+    //static int userGameChoice;
+private:
+    
+
 
 };

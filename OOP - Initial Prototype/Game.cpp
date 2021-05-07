@@ -26,3 +26,7 @@ int Game::GetCost() const
 int Game::getId() {
 	return id;
 }
+int Game::getAgeRating()
+{
+	return ageRating;
+}
