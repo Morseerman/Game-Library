@@ -14,7 +14,7 @@ void PurchaseMenu::OutputOptions()
 		{
 			std::cout << "Description: " << Utils::getGame(i, app->GetStore().games)->GetDescription() << std::endl;
 			std::cout << "Age Rating: " << Utils::getGame(i, app->GetStore().games)->getAgeRating() << std::endl;
-			std::cout << "Price: £" << Utils::getGame(i, app->GetStore().games)->GetCost() << std::endl;
+			std::cout << "Price: \x9C" << Utils::getGame(i, app->GetStore().games)->GetCost() << std::endl;
 			//std::cout << Utils::getGame(i, app->GetStore().games)->GetDescription() << std::endl;
 			//Utils::getGame(i, app->GetStore().games)->getRating();
 		}

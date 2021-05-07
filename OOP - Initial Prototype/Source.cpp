@@ -85,7 +85,8 @@ void parseFileData() {
 		while (std::getline(dataFile, line)) {
 			if (line == "GAME") {
 				std::string name1, desc1, cost1, rating1, id1;
-				int costInt1, ratingInt1, idInt1;
+				int ratingInt1, idInt1;
+				float costFloat1;
 				//dataFile >> id >> name >> desc >> cost >> rating;
 				std::getline(dataFile, id1);
 				std::getline(dataFile, name1);
@@ -94,14 +95,14 @@ void parseFileData() {
 				std::getline(dataFile, rating1);
 				std::stringstream ssCost1;
 				ssCost1 << cost1;
-				ssCost1 >> costInt1;
+				ssCost1 >> costFloat1;
 				std::stringstream ssRating1;
 				ssRating1 << rating1;
 				ssRating1 >> ratingInt1;
 				std::stringstream ssId1;
 				ssId1 << id1;
 				ssId1 >> idInt1;
-				app.GetStore().games.addAtEnd(new Game(idInt1, name1, desc1, costInt1, ratingInt1));
+				app.GetStore().games.addAtEnd(new Game(idInt1, name1, desc1, costFloat1/100, ratingInt1));
 				std::cout << app.GetStore().games.last()->GetName() << std::endl;
 			}
 			else if (line == "ACCOUNT") { //setup account from file
