@@ -8,7 +8,7 @@ StoreMenu::StoreMenu(const std::string& title, Application* app) : Menu(title, a
 
 void StoreMenu::OutputOptions()
 {
-	for (int i = 1; i < app->GetStore().games.length(); i++)
+	for (int i = 1; i < app->GetStore().games.Length(); i++)
 	{
 		// adding 1 so the display is nicer for the user
 		std::cout << i << ") " << Utils::GetGame(i, app->GetStore().games)->GetName() << std::endl;
@@ -23,7 +23,7 @@ bool StoreMenu::HandleChoice(std::string choice)
 
 	//int index = choice - '1';
 
-	for (int i = 1; i < app->GetStore().games.length(); i++)
+	for (int i = 1; i < app->GetStore().games.Length(); i++)
 	{
 		// adding 1 so the display is nicer for the user
 		//std::cout << i << ") " << Utils::getGame(i, app->GetStore().games)->GetName() << std::endl;

@@ -30,7 +30,7 @@ bool LoginMenu::HandleChoice(std::string choice)
 	std::cout << "Enter Password\n";
 	std::string inputAccountPassword = Utils::GetLineFromUser();
 
-	app->accounts.first()->users.first()->Promote();
+	app->accounts.First()->users.First()->Promote();
 
 	//logging into account
 	if (app->LoginAccount(choice, inputAccountPassword) == true)
@@ -42,7 +42,7 @@ bool LoginMenu::HandleChoice(std::string choice)
 		for (int i = 0; i < userNames.size(); i++)
 		{
 			// adding 1 so the display is nicer for the user
-			app->accounts.first()->users.first()->GetUsername();
+			app->accounts.First()->users.First()->GetUsername();
 		}
 		app->LoginUser(choice, "password");
 

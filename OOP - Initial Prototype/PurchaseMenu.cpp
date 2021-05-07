@@ -8,7 +8,7 @@ PurchaseMenu::PurchaseMenu(const std::string& title, Application* app, int aUser
 
 void PurchaseMenu::OutputOptions()
 {
-	for (int i = 1; i < app->GetStore().games.length(); i++)
+	for (int i = 1; i < app->GetStore().games.Length(); i++)
 	{
 		if (i == userGameChoice) 
 		{
@@ -33,7 +33,7 @@ void PurchaseMenu::OutputOptions()
 bool PurchaseMenu::HandleChoice(std::string choice)
 {
 	if (choice == "P") {
-		for (int i = 1; i < app->GetStore().games.length(); i++) {
+		for (int i = 1; i < app->GetStore().games.Length(); i++) {
 			if (Utils::GetGame(i, app->GetStore().games)->getId() == userGameChoice - 1) {
 				//conditions for buying the game
 				if (Utils::GetGame(i, app->GetStore().games)->GetCost() > app->GetCurrentUser()->GetCredits()) {

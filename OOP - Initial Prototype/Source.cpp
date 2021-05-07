@@ -23,22 +23,22 @@ void createHardcodedTestData()
 	
 
 	// Setup store with some games
-	app.GetStore().games.addAtEnd(new Game(1,"The Witness", "Explore a nice island and solve puzzles.", 2999, 5));
-	app.GetStore().games.addAtEnd(new Game(2,"Braid", "A time twisting puzzle game.", 499, 15));
-	app.GetStore().games.addAtEnd(new Game(3,"Factorio", "Build a complicated factory in space.", 1599, 12));
-	app.GetStore().games.addAtEnd(new Game(4,"LIMBO", "Watch out for that spider.", 299, 12));
-	app.GetStore().games.addAtEnd(new Game(5,"INSIDE", "What are those scientists even doing?!", 1299, 15));
-	app.GetStore().games.addAtEnd(new Game(6,"Portal 2", "Play around with physics. Shoot the moon.", 1999, 15));
-	app.GetStore().games.addAtEnd(new Game(7,"Half Life 3", "It's never coming out.", 5999, 18));
-	app.GetStore().games.addAtEnd(new Game(8,"NUVAVULT", "A game where 2D and 3D collide.", 299, 18));
-	app.GetStore().games.addAtEnd(new Game(9,"Path", "Draw nice shapes between 2 big dots.", 299, 15));
+	app.GetStore().games.AddAtEnd(new Game(1,"The Witness", "Explore a nice island and solve puzzles.", 2999, 5));
+	app.GetStore().games.AddAtEnd(new Game(2,"Braid", "A time twisting puzzle game.", 499, 15));
+	app.GetStore().games.AddAtEnd(new Game(3,"Factorio", "Build a complicated factory in space.", 1599, 12));
+	app.GetStore().games.AddAtEnd(new Game(4,"LIMBO", "Watch out for that spider.", 299, 12));
+	app.GetStore().games.AddAtEnd(new Game(5,"INSIDE", "What are those scientists even doing?!", 1299, 15));
+	app.GetStore().games.AddAtEnd(new Game(6,"Portal 2", "Play around with physics. Shoot the moon.", 1999, 15));
+	app.GetStore().games.AddAtEnd(new Game(7,"Half Life 3", "It's never coming out.", 5999, 18));
+	app.GetStore().games.AddAtEnd(new Game(8,"NUVAVULT", "A game where 2D and 3D collide.", 299, 18));
+	app.GetStore().games.AddAtEnd(new Game(9,"Path", "Draw nice shapes between 2 big dots.", 299, 15));
 
 	std::string test = "this is a test";
 	std::cout << Utils::RecursiveToUpper(test, 0);
 
 	//std::cout << str << std::endl;
 
-	std::cout << "Size of games list: " << app.GetStore().games.length() << std::endl;
+	std::cout << "Size of games list: " << app.GetStore().games.Length() << std::endl;
 
 
 	// Create some users
@@ -61,16 +61,16 @@ void createHardcodedTestData()
 
 	//// Make an account and attach the users
 	////"2018-06-16"
-	app.accounts.addAtEnd(new Account("e", "p", (16, 6, 2018)));
+	app.accounts.AddAtEnd(new Account("e", "p", (16, 6, 2018)));
 	
 
-	app.accounts.first()->users.addAtEnd(u1);
-	app.accounts.first()->users.addAtEnd(u2);
-	app.accounts.first()->users.addAtEnd(u3);
+	app.accounts.First()->users.AddAtEnd(u1);
+	app.accounts.First()->users.AddAtEnd(u2);
+	app.accounts.First()->users.AddAtEnd(u3);
 	//app.accounts.first()->users.addAtEnd(u2);
 	//app.accounts.first()->users.addAtEnd(u3);
 
-	std::cout << "List of users associated with account: " << app.accounts.length() << std::endl;
+	std::cout << "List of users associated with account: " << app.accounts.Length() << std::endl;
 	//std::cout << "List of users: " << app.accounts.first
 
 	//// TODO: We need a login menu for accounts, for now we log in the only account
@@ -102,8 +102,8 @@ void parseFileData() {
 				std::stringstream ssId1;
 				ssId1 << id1;
 				ssId1 >> idInt1;
-				app.GetStore().games.addAtEnd(new Game(idInt1, name1, desc1, costFloat1/100, ratingInt1));
-				std::cout << app.GetStore().games.last()->GetName() << std::endl;
+				app.GetStore().games.AddAtEnd(new Game(idInt1, name1, desc1, costFloat1/100, ratingInt1));
+				std::cout << app.GetStore().games.Last()->GetName() << std::endl;
 			}
 			else if (line == "ACCOUNT") { //setup account from file
 				std::string email2, password2, date2;
@@ -125,7 +125,7 @@ void parseFileData() {
 				ssDay2 >> intDay2;
 				Date actualDate2(intDay2, intMonth2, intYear2);
 				//app.accounts.addAtEnd(new Account("alice@shu.com", "password", (16, 6, 2018)));
-				app.accounts.addAtEnd(new Account(email2, password2, actualDate2));
+				app.accounts.AddAtEnd(new Account(email2, password2, actualDate2));
 			}
 			else if (line == "ACCOUNT-PLAYER") { //setup account type player
 				std::string username3, password3, created3, credits3;
@@ -151,7 +151,7 @@ void parseFileData() {
 				//Player* u2 = new Player("Bob", "password", (19, 9, 2018));
 				Player* user = new Player(username3, password3, actualDate3, intCredits3);
 				//app.accounts.first()->users.addAtEnd(u1);
-				app.accounts.last()->users.addAtEnd(user);
+				app.accounts.Last()->users.AddAtEnd(user);
 
 			}
 			else if (line == "ACCOUNT-ADMIN") { //setup account type admin
@@ -178,7 +178,7 @@ void parseFileData() {
 				//Player* u2 = new Player("Bob", "password", (19, 9, 2018));
 				Player* user = new Admin(username4, password4, actualDate4, intCredits4);
 				//app.accounts.first()->users.addAtEnd(u1);
-				app.accounts.last()->users.addAtEnd(user);
+				app.accounts.Last()->users.AddAtEnd(user);
 
 			}
 			else if (line == "LIBRARY-ITEM") { //setup library item
@@ -206,13 +206,13 @@ void parseFileData() {
 				//u1->library.addAtEnd(new LibraryItem(1,(17, 6, 2018), app.GetStore().games.last()));
 				//u1->library.addAtEnd(new LibraryItem(2,(17, 6, 2018), app.GetStore().games.first());
 
-				app.accounts.last()->users.last()->library.push_back(new LibraryItem(intId5, actualDate5, Utils::GetGame(intId5, app.GetStore().games), intPlayTime));
+				app.accounts.Last()->users.Last()->library.push_back(new LibraryItem(intId5, actualDate5, Utils::GetGame(intId5, app.GetStore().games), intPlayTime));
 			}
 		}
-		std::cout << "The total amount of games is: " << app.GetStore().games.length() << std::endl;
-		std::cout << "The total amount of accounts is: " << app.accounts.length() << std::endl;
-		std::cout << "The total amount of player users is: " << app.accounts.last()->users.length() << std::endl;
-		std::cout << "The total amount of games in user library is: " << app.accounts.last()->users.last()->library.size() << std::endl;
+		std::cout << "The total amount of games is: " << app.GetStore().games.Length() << std::endl;
+		std::cout << "The total amount of accounts is: " << app.accounts.Length() << std::endl;
+		std::cout << "The total amount of player users is: " << app.accounts.Last()->users.Length() << std::endl;
+		std::cout << "The total amount of games in user library is: " << app.accounts.Last()->users.Last()->library.size() << std::endl;
 	}
 };
 
@@ -251,7 +251,7 @@ char showStoreMenuAndGetUserChoice()
 	std::cout << "                    \n";
 
 	// Output game list
-	app.GetStore().games.display();
+	app.GetStore().games.Display();
 
 	// TODO: Implement search store option
 
@@ -273,7 +273,7 @@ char showLoginUserMenuAndGetUserChoice(Account *account)
 	std::cout << "                    \n";
 
 	// Output user list
-	account->users.display();
+	account->users.Display();
 
 	// Output rest of menu
 	std::cout << "                    \n";

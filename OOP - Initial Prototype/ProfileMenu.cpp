@@ -23,7 +23,7 @@ void ProfileMenu::OutputOptions()
 	//Admin UserOptions
 	if (app->GetCurrentUser()->IsAdmin())
 	{
-		std::cout << "\nC) Create user" << std::endl;		
+		std::cout << "\nC) Create user\n" << std::endl;		
 	}
 
 
@@ -49,7 +49,7 @@ bool ProfileMenu::HandleChoice(std::string choice)
         std::cout << "Enter Password\n";
         std::string newPassword = Utils::GetLineFromUser();
         
-        app->accounts.first()->users.addAtEnd(new Player(newUserName, newPassword, (2019, 07, 19), 500));
+        app->accounts.First()->users.AddAtEnd(new Player(newUserName, newPassword, (2019, 07, 19), 500));
         std::cout << "Account Created";
         std::string nextChoice = Utils::GetLineFromUser();
     }
@@ -80,7 +80,7 @@ bool ProfileMenu::HandleChoice(std::string choice)
                 }
                 else if (nextChoice == "2")
                 {
-                    for (int j = 0; j < app->GetStore().games.length(); j++)
+                    for (int j = 0; j < app->GetStore().games.Length(); j++)
                     {
                         if (app->GetCurrentUser()->library[i]->getGame()->GetName() == Utils::GetGame(j, app->GetStore().games)->GetName())
                         {
@@ -91,7 +91,7 @@ bool ProfileMenu::HandleChoice(std::string choice)
                 }
                 else if (nextChoice == "3")
                 {
-                    for (int j = 0; j < app->GetStore().games.length(); j++)
+                    for (int j = 0; j < app->GetStore().games.Length(); j++)
                     {
                         if (app->GetCurrentUser()->library[i]->getGame()->GetName() == Utils::GetGame(j, app->GetStore().games)->GetName())
                         {

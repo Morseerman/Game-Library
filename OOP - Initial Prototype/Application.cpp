@@ -48,15 +48,15 @@ bool Application::LoginAccount(const std::string& email, const std::string& pass
 	
 	List<Account*> copyList = accounts;
 
-	while (copyList.length() != 0)
+	while (copyList.Length() != 0)
 	{
-		if (email == Utils::LoopToUpper(copyList.first()->GetEmail()) && password == copyList.first()->GetPassword())
+		if (email == Utils::LoopToUpper(copyList.First()->GetEmail()) && password == copyList.First()->GetPassword())
 		{
-			currentAccount = accounts.first();
+			currentAccount = accounts.First();
 			return true;
 		}
 
-		copyList.deleteFirst();
+		copyList.DeleteFirst();
 
 	}
 
@@ -69,26 +69,26 @@ bool Application::LoginUser(const std::string& username, const std::string& pass
 	// currentUser = currentAccount->users[0];
 	//currentUser = currentAccount->users.last();
 	
-	List<User*> copyList = accounts.first()->GetUsers();
+	List<User*> copyList = accounts.First()->GetUsers();
 	int counter = 1;
 
-	while (copyList.length() != 0)
+	while (copyList.Length() != 0)
 	{
-		std::cout << counter << ") " << copyList.first()->GetUsername() << std::endl;
-		copyList.deleteFirst();
+		std::cout << counter << ") " << copyList.First()->GetUsername() << std::endl;
+		copyList.DeleteFirst();
 		counter++;
 	}
 
 
-	while (copyList.length() != 0)
+	while (copyList.Length() != 0)
 	{
-		if (username == Utils::LoopToUpper(copyList.first()->GetUsername()) && password == copyList.first()->GetPassword())
+		if (username == Utils::LoopToUpper(copyList.First()->GetUsername()) && password == copyList.First()->GetPassword())
 		{
-			currentAccount = accounts.first();
+			currentAccount = accounts.First();
 			return true;
 		}
 
-		copyList.deleteFirst();
+		copyList.DeleteFirst();
 
 	}
 			

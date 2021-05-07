@@ -61,7 +61,7 @@ public:
     }
 
 
-    bool List<T>::isEmpty() const {
+    bool List<T>::IsEmpty() const {
         if (head == NULL) {
             return true;
         }
@@ -85,7 +85,7 @@ public:
         }
     }
 
-    void addInFront(const T& n) {
+    void AddInFront(const T& n) {
         Node<T>* temp = new Node<T>(n);
         if (head != NULL) {
             temp->next = head;
@@ -97,14 +97,14 @@ public:
 
     }
 
-    T first() const {
+    T First() const {
         if (head != NULL) {
             return head->item;
 
         }
     }
 
-    T last() const {
+    T Last() const {
         if (head != NULL) {
             Node<T>* temp = head;
             while (temp->next != NULL) {
@@ -114,7 +114,7 @@ public:
         }
     }
 
-    void deleteFirst() {
+    void DeleteFirst() {
         if (head != NULL) {
             Node<T>* temp;
             temp = head;
@@ -122,11 +122,11 @@ public:
         }
     }
 
-    void deleteOne(const T& n) {
+    void DeleteOne(const T& n) {
 
     }
 
-    void addAtEnd(const T& n) {
+    void AddAtEnd(const T& n) {
         Node<T>* temp = new Node<T>(n);
 
         if (head == NULL) {
@@ -146,7 +146,7 @@ public:
 
     }
 
-    int length() const {
+    int Length() const {
         Node<T>* temp;
         temp = head;
         int count = 0;
@@ -158,7 +158,7 @@ public:
         return count;
     }
 
-    void display() {
+    void Display() {
         Node<T>* temp;
         temp = head;
         int counter = 1;
@@ -171,7 +171,7 @@ public:
   
 
 
-    bool contains(const T& n) const {
+    bool Contains(const T& n) const {
         Node<T>* temp;
         temp = head;
         while (temp != NULL) {
@@ -189,8 +189,8 @@ public:
 private:
     Node<T>* head = nullptr;                           // point onto first item (nullptr if empty)
     Node<T>* tail = nullptr;
-    Node<T>* end() const;                    // return address of last item (nullptr if empty)
-    void destroy();                          // delete all items in list
-    void copy(const List<T>&);               // make a deep copy of the list
+    Node<T>* End() const;                    // return address of last item (nullptr if empty)
+    void Destroy();                          // delete all items in list
+    void Copy(const List<T>&);               // make a deep copy of the list
 };
 

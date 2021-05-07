@@ -46,26 +46,26 @@ std::string Utils::GetUpperLineFromUser()
 User* Utils::GetUserFromList(int index, List<Account*> accounts)
 {
     
-    List<User*> copyList = accounts.first()->GetUsers();
+    List<User*> copyList = accounts.First()->GetUsers();
 
     for (int i = 0; i < index - 1; i++)
     {
-        copyList.deleteFirst();
+        copyList.DeleteFirst();
     }
-    return copyList.first();
+    return copyList.First();
 }
 User* Utils::DeleteUserFromList(int index, List<Account*> accounts)
 {
     
 
-    List<User*> copyList = accounts.first()->GetUsers();
+    List<User*> copyList = accounts.First()->GetUsers();
 
 
     for (int i = 0; i < index - 1; i++)
     {
-        copyList.deleteFirst();
+        copyList.DeleteFirst();
     }
-    return copyList.first();
+    return copyList.First();
 }
 
 Game* Utils::GetGame(int index, List<Game*> games)
@@ -75,9 +75,9 @@ Game* Utils::GetGame(int index, List<Game*> games)
 
     for (int i = 0; i < index - 1; i++)
     {
-        copyList.deleteFirst();
+        copyList.DeleteFirst();
     }
-    return copyList.first();
+    return copyList.First();
 }
 
 int Utils::StringToInt(std::string numString)
