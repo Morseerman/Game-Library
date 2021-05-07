@@ -30,7 +30,7 @@ bool StoreMenu::HandleChoice(std::string choice)
 		if (Utils::stringToInt(choice) == i)
 		{
 			//Utils::userGameChoice = Utils::stringToInt(choice);
-			PurchaseMenu(Utils::getGame(i, app->GetStore().games)->GetName(), app);
+			PurchaseMenu(Utils::getGame(i, app->GetStore().games)->GetName(), app, Utils::stringToInt(choice));
 		}
 	}
 
