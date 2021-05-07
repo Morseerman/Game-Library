@@ -1,10 +1,4 @@
 GAME
-0
-The Witness
-Explore a nice island and solve puzzles.
-2999
-5
-GAME
 1
 Braid
 A time twisting puzzle game.

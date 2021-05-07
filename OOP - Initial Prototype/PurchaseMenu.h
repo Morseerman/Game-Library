@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 #include <ctime>
+#include <fstream>
+#include <sstream>
 
 
 class PurchaseMenu : public Menu
