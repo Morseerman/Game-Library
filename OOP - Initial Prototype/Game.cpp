@@ -1,7 +1,7 @@
 #include "Game.h"
 
 
-Game::Game(int id, const std::string& name, const std::string& desc, float cost, int rating)
+Game::Game(int id, const std::string& name, const std::string& desc, int cost, int rating)
 	: id(id),name(name), description(desc), cost(cost), ageRating(rating)
 {
 }
@@ -20,7 +20,7 @@ const std::string& Game::GetDescription() const
 	return description;
 }
 
-float Game::GetCost() const
+int Game::GetCost() const
 {
 	return cost;
 }

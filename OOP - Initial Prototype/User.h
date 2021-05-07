@@ -16,6 +16,7 @@ class User
 		const std::string& GetPassword() const;
 		const int getCredits() const;
 		int incrementCredits(std::string choice);
+		int subtractCredits(int amount);
 	private:
 		std::string username;
 		std::string password;

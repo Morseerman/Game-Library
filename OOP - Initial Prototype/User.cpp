@@ -38,3 +38,8 @@ int User::incrementCredits(std::string choice) {
 		return credits;
 	}
 }
+
+int User::subtractCredits(int amount) {
+	credits -= amount;
+	return credits;
+}

@@ -1,9 +1,11 @@
-#pragma once
+#pragma warning(disable:4996)
 
 #include "Menu.h"
 #include <sstream>
 #include <string>
 #include <vector>
+#include <ctime>
+
 
 class PurchaseMenu : public Menu
 {
