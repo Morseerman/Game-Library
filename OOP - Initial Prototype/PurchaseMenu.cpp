@@ -55,6 +55,7 @@ bool PurchaseMenu::HandleChoice(std::string choice)
 					app->GetCurrentUser()->subtractCredits(Utils::getGame(i, app->GetStore().games)->GetCost());
 					std::cout << "Your purchase is successful" << std::endl;
 					std::fstream dataFile;
+					std::string line;
 					std::string strGameId, strDay, strMon, strYear;
 					std::stringstream ssgameId, ssday, ssmon, ssyear;
 					int gameId = Utils::getGame(i, app->GetStore().games)->getId();
@@ -76,10 +77,10 @@ bool PurchaseMenu::HandleChoice(std::string choice)
 					dataFile << strGameId + "\n";
 					dataFile << strYear + "-" + strMon + "-" + strYear + "\n";
 					dataFile << "0";
+					dataFile.close();
 					Utils::getLineFromUser();
 					return true;
 				}
-				
 
 			}
 

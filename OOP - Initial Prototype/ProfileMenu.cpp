@@ -32,6 +32,25 @@ bool ProfileMenu::HandleChoice(std::string choice)
 
 	if (choice == "I" || "O" || "P") {
 		app->GetCurrentUser()->incrementCredits(choice);
+		std::fstream dataFile;
+		std::string line;
+		dataFile.open("data.txt");
+		while (std::getline(dataFile, line)) {
+			if (line == app->GetCurrentUser()->GetUsername()) {
+				std::string skip;
+				int newCreditTotal = app->GetCurrentUser()->getCredits();
+				std::string strCredits;
+				std::stringstream ssCredits;
+				ssCredits << newCreditTotal;
+				ssCredits >> strCredits;
+				std::getline(dataFile, skip);
+				//dataFile.seekp(line);
+				dataFile << strCredits;
+
+			}
+		}
+		dataFile.close();
+
 		if (choice == "B") {
 			return true;
 		}
