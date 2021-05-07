@@ -84,3 +84,19 @@ int Utils::returnRandomNumber()
     std::cout << randomNumber << std::endl;
     return randomNumber;
 }
+
+float Utils::calculatePercentage(float num1, float num2)
+{
+    float total = num1 + num2;
+
+    if (num1 != 0)
+    {
+        float percentage = (num1 / total) * 100;
+        return percentage;
+    }
+    else
+    {
+        return 0;
+    }
+
+}

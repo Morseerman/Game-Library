@@ -31,17 +31,42 @@ bool ProfileMenu::HandleChoice(std::string choice)
 	int intChoice = Utils::stringToInt(choice);
 
 	for (int i = 0; i < app->GetCurrentUser()->library.size(); i++) {
-		if (i == intChoice) {
-			app->GetCurrentUser()->library[i]->addPlayTime(Utils::returnRandomNumber());
+		if (i == intChoice) 
+		{
+			std::cout << "1) Play\n";
+			std::cout << "2) Like\n";
+			std::cout << "3) Dislike\n";
+			std::string nextChoice = Utils::getLineFromUser();
+			
+			if (nextChoice == "1")
+			{
+				app->GetCurrentUser()->library[i]->addPlayTime(Utils::returnRandomNumber());
+			}
+			else if (nextChoice == "2")
+			{
+				for (int j = 0; j < app->GetStore().games.length(); j++)
+				{
+					 if (app->GetCurrentUser()->library[i]->getGame()->GetName() == Utils::getGame(j, app->GetStore().games)->GetName())
+					 {
+						 Utils::getGame(j, app->GetStore().games)->addLike();						 
+					 }
+				}
+				
+			}
+			else if (nextChoice == "3")
+			{
+				for (int j = 0; j < app->GetStore().games.length(); j++)
+				{
+					if (app->GetCurrentUser()->library[i]->getGame()->GetName() == Utils::getGame(j, app->GetStore().games)->GetName())
+					{
+						Utils::getGame(j, app->GetStore().games)->addDislike();
+					}
+				}
+			}
+
 			return false;
 		}
 	}
-
-	
-
-	//if (choice == "s") {
-	//	app->GetCurrentUser
-	//}
 
 
 	app->GetCurrentUser()->incrementCredits(choice);

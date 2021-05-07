@@ -1,5 +1,6 @@
 #include "Game.h"
 
+
 Game::Game(int id, const std::string& name, const std::string& desc, float cost, int rating)
 	: id(id),name(name), description(desc), cost(cost), ageRating(rating)
 {
@@ -29,4 +30,34 @@ int Game::getId() {
 int Game::getAgeRating()
 {
 	return ageRating;
+}
+float Game::getLikes()
+{
+	return likes;
+}
+float Game::getDislikes()
+{
+	return dislikes;
+}
+float Game::getRating(float likes, float dislikes)
+{
+	float total = likes + dislikes;
+
+	if (likes != 0)
+	{
+		float percentage = (likes / total) * 100;
+		return percentage;
+	}
+	else
+	{
+		return 0;
+	}
+}
+void Game::addLike()
+{
+	likes++;
+}
+void Game::addDislike()
+{
+	dislikes++;
 }

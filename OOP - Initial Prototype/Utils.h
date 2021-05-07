@@ -28,6 +28,7 @@ public:
     static Game* getGame(int index, List<Game*> games);
 
     static int returnRandomNumber();
+    static float calculatePercentage(float num1, float num2);
     //static int userGameChoice;
 private:
     

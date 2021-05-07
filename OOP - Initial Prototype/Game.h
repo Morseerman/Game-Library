@@ -2,6 +2,7 @@
 
 #include <string>
 
+
 class Game
 {
 	public:
@@ -14,11 +15,22 @@ class Game
 		int getId();
 		int getAgeRating();
 
+		float getLikes();
+		float getDislikes();
+		float getRating(float, float);
+
+		void addLike();
+		void addDislike();
+
 	private:
 		int id;
 		std::string name;
 		std::string description;
 		float cost;
 		int ageRating;
+
+		float likes = 0;
+		float dislikes = 0;
+		float rating = 0;
 
 };
