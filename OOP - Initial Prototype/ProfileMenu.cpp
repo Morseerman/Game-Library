@@ -62,7 +62,7 @@ bool ProfileMenu::HandleChoice(std::string choice)
 
     //All User Choices
 
-    if (choice == "I"  "O"  "P") {
+    if (choice == "I" || "O" || "P") {
         app->GetCurrentUser()->incrementCredits(choice);
         if (choice == "B") {
             return true;
