@@ -16,7 +16,7 @@ void Menu::Paint()
 		Option('B', "Back");
 		Footer();
 
-		std::string choice = Utils::getUpperLineFromUser(); //MAY NEED TO CHANGE
+		std::string choice = Utils::GetUpperLineFromUser(); //MAY NEED TO CHANGE
 
 		if (choice == "B")
 		{
@@ -55,13 +55,13 @@ void Menu::Option(int id, const std::string& option)
 std::string Menu::Question(const std::string& question)
 {
 	std::cout << "  " << question << ": ";
-	return Utils::getLineFromUser(); //MAY NEED TO CHANGE
+	return Utils::GetLineFromUser(); //MAY NEED TO CHANGE
 }
 
 void Menu::BlockingMessage(const std::string& message)
 {
 	std::cout << "  " << message;
-	Utils::getLineFromUser(); //MAY NEED TO CHANGE
+	Utils::GetLineFromUser(); //MAY NEED TO CHANGE
 }
 
 void Menu::Header()

@@ -50,7 +50,7 @@ bool Application::LoginAccount(const std::string& email, const std::string& pass
 
 	while (copyList.length() != 0)
 	{
-		if (email == Utils::loopToUpper(copyList.first()->getEmail()) && password == copyList.first()->getPassword())
+		if (email == Utils::LoopToUpper(copyList.first()->GetEmail()) && password == copyList.first()->GetPassword())
 		{
 			currentAccount = accounts.first();
 			return true;
@@ -69,7 +69,7 @@ bool Application::LoginUser(const std::string& username, const std::string& pass
 	// currentUser = currentAccount->users[0];
 	//currentUser = currentAccount->users.last();
 	
-	List<User*> copyList = accounts.first()->getUsers();
+	List<User*> copyList = accounts.first()->GetUsers();
 	int counter = 1;
 
 	while (copyList.length() != 0)
@@ -82,7 +82,7 @@ bool Application::LoginUser(const std::string& username, const std::string& pass
 
 	while (copyList.length() != 0)
 	{
-		if (username == Utils::loopToUpper(copyList.first()->GetUsername()) && password == copyList.first()->GetPassword())
+		if (username == Utils::LoopToUpper(copyList.first()->GetUsername()) && password == copyList.first()->GetPassword())
 		{
 			currentAccount = accounts.first();
 			return true;

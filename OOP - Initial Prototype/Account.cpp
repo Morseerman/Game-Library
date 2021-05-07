@@ -10,15 +10,15 @@ Account::~Account()
 }
 
 //Getters
-List<User*> Account:: getUsers()
+List<User*> Account:: GetUsers()
 {
 	return users;
 }
-std::string Account::getEmail()
+std::string Account::GetEmail()
 {
 	return email;
 }
-std::string Account::getPassword()
+std::string Account::GetPassword()
 {
 	return password;
 }

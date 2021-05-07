@@ -34,7 +34,7 @@ void createHardcodedTestData()
 	app.GetStore().games.addAtEnd(new Game(9,"Path", "Draw nice shapes between 2 big dots.", 299, 15));
 
 	std::string test = "this is a test";
-	std::cout << Utils::recursiveToUpper(test, 0);
+	std::cout << Utils::RecursiveToUpper(test, 0);
 
 	//std::cout << str << std::endl;
 
@@ -206,7 +206,7 @@ void parseFileData() {
 				//u1->library.addAtEnd(new LibraryItem(1,(17, 6, 2018), app.GetStore().games.last()));
 				//u1->library.addAtEnd(new LibraryItem(2,(17, 6, 2018), app.GetStore().games.first());
 
-				app.accounts.last()->users.last()->library.push_back(new LibraryItem(intId5, actualDate5, Utils::getGame(intId5, app.GetStore().games), intPlayTime));
+				app.accounts.last()->users.last()->library.push_back(new LibraryItem(intId5, actualDate5, Utils::GetGame(intId5, app.GetStore().games), intPlayTime));
 			}
 		}
 		std::cout << "The total amount of games is: " << app.GetStore().games.length() << std::endl;
@@ -240,7 +240,7 @@ char showMainMenuAndGetUserChoice()
 	std::cout << "                    \n";
 	std::cout << "  >>> ";
 
-	return Utils::getCharFromUser();
+	return Utils::GetCharFromUser();
 }
 
 char showStoreMenuAndGetUserChoice()
@@ -262,7 +262,7 @@ char showStoreMenuAndGetUserChoice()
 	std::cout << "                    \n";
 	std::cout << "  >>> ";
 
-	return Utils::getCharFromUser();
+	return Utils::GetCharFromUser();
 }
 
 char showLoginUserMenuAndGetUserChoice(Account *account)
@@ -282,7 +282,7 @@ char showLoginUserMenuAndGetUserChoice(Account *account)
 	std::cout << "                    \n";
 	std::cout << "  >>> ";
 
-	return Utils::getCharFromUser();
+	return Utils::GetCharFromUser();
 }
 
 char showGameMenuAndGetUserChoice(Game* game)
@@ -305,7 +305,7 @@ char showGameMenuAndGetUserChoice(Game* game)
 	std::cout << "                            \n";
 	std::cout << "  >>> ";
 
-	return Utils::getCharFromUser();
+	return Utils::GetCharFromUser();
 }
 
 void gameMenu(Game* game)

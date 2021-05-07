@@ -3,7 +3,7 @@
 #include "Account.h"
 
 
-std::string Utils::getLineFromUser()
+std::string Utils::GetLineFromUser()
 {
     std::string input;
     std::getline(std::cin, input);
@@ -11,12 +11,12 @@ std::string Utils::getLineFromUser()
 }
 
 
-char Utils::getCharFromUser()
+char Utils::GetCharFromUser()
 {
-    return toupper(getLineFromUser()[0]);
+    return toupper(GetLineFromUser()[0]);
 }
 
-std::string Utils::loopToUpper(std::string str) {
+std::string Utils::LoopToUpper(std::string str) {
     std::string upperCase;
     for (int it : str) {
         if (it > 96 && it < 123) {
@@ -30,23 +30,36 @@ std::string Utils::loopToUpper(std::string str) {
     return upperCase;
 }
 
-std::string Utils::recursiveToUpper(std::string str, int i) {
+std::string Utils::RecursiveToUpper(std::string str, int i) {
     if (i >= str.size()) {
         return str;
     }
     str[i] = toupper(str[i]);
-    str = recursiveToUpper(str, i + 1);
+    str = RecursiveToUpper(str, i + 1);
 
     return str;
 }
-std::string Utils::getUpperLineFromUser()
+std::string Utils::GetUpperLineFromUser()
 {
-    return loopToUpper(getLineFromUser());
+    return LoopToUpper(GetLineFromUser());
 }
-User* Utils::getUserFromList(int index, List<Account*> accounts)
+User* Utils::GetUserFromList(int index, List<Account*> accounts)
 {
     
-    List<User*> copyList = accounts.first()->getUsers();
+    List<User*> copyList = accounts.first()->GetUsers();
+
+    for (int i = 0; i < index - 1; i++)
+    {
+        copyList.deleteFirst();
+    }
+    return copyList.first();
+}
+User* Utils::DeleteUserFromList(int index, List<Account*> accounts)
+{
+    
+
+    List<User*> copyList = accounts.first()->GetUsers();
+
 
     for (int i = 0; i < index - 1; i++)
     {
@@ -55,7 +68,7 @@ User* Utils::getUserFromList(int index, List<Account*> accounts)
     return copyList.first();
 }
 
-Game* Utils::getGame(int index, List<Game*> games)
+Game* Utils::GetGame(int index, List<Game*> games)
 {
 
     List<Game*> copyList = games;
@@ -67,7 +80,7 @@ Game* Utils::getGame(int index, List<Game*> games)
     return copyList.first();
 }
 
-int Utils::stringToInt(std::string numString)
+int Utils::StringToInt(std::string numString)
 {
     int temp;
     std::stringstream ssInputOption;
@@ -76,7 +89,7 @@ int Utils::stringToInt(std::string numString)
     return temp;
 }
 
-int Utils::returnRandomNumber()
+int Utils::ReturnRandomNumber()
 {
     srand((unsigned)time(0));
     int randomNumber;
@@ -85,7 +98,7 @@ int Utils::returnRandomNumber()
     return randomNumber;
 }
 
-float Utils::calculatePercentage(float num1, float num2)
+float Utils::CalculatePercentage(float num1, float num2)
 {
     float total = num1 + num2;
 

@@ -17,11 +17,11 @@ const std::string& User::GetPassword() const
 {
 	return password;
 }
-const int User::getCredits() const
+const int User::GetCredits() const
 {
 	return credits;
 }
-int User::incrementCredits(std::string choice) {
+int User::IncrementCredits(std::string choice) {
 	if (choice == "I") {
 		credits += 1;
 		return credits;
@@ -39,20 +39,20 @@ int User::incrementCredits(std::string choice) {
 	}
 }
 
-int User::subtractCredits(int amount) {
+int User::SubtractCredits(int amount) {
 	credits -= amount;
 	return credits;
 }
 
-bool User::isAdmin()
+bool User::IsAdmin()
 {
 	return admin;
 }
-void User::promote()
+void User::Promote()
 {
 	admin = true;
 }
-void User::demote()
+void User::Demote()
 {
 	admin = false;
 }

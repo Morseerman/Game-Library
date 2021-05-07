@@ -11,7 +11,7 @@ void StoreMenu::OutputOptions()
 	for (int i = 1; i < app->GetStore().games.length(); i++)
 	{
 		// adding 1 so the display is nicer for the user
-		std::cout << i << ") " << Utils::getGame(i, app->GetStore().games)->GetName() << std::endl;
+		std::cout << i << ") " << Utils::GetGame(i, app->GetStore().games)->GetName() << std::endl;
 	}
 }
 
@@ -27,10 +27,10 @@ bool StoreMenu::HandleChoice(std::string choice)
 	{
 		// adding 1 so the display is nicer for the user
 		//std::cout << i << ") " << Utils::getGame(i, app->GetStore().games)->GetName() << std::endl;
-		if (Utils::stringToInt(choice) == i)
+		if (Utils::StringToInt(choice) == i)
 		{
 			//Utils::userGameChoice = Utils::stringToInt(choice);
-			PurchaseMenu(Utils::getGame(i, app->GetStore().games)->GetName(), app, Utils::stringToInt(choice));
+			PurchaseMenu(Utils::GetGame(i, app->GetStore().games)->GetName(), app, Utils::StringToInt(choice));
 		}
 	}
 

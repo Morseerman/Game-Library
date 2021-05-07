@@ -13,22 +13,23 @@
 class Utils
 {
 public:
-    static std::string getLineFromUser();
-    static char getCharFromUser();
-    static User* getUserFromList(int index, List<Account*> accounts);
+    static std::string GetLineFromUser();
+    static char GetCharFromUser();
+    static User* GetUserFromList(int index, List<Account*> accounts);
 
     // TODO: 2 versions of ToUpper
-    static std::string loopToUpper(std::string str);
+    static std::string LoopToUpper(std::string str);
 
-    static std::string recursiveToUpper(std::string str, int i);
+    static std::string RecursiveToUpper(std::string str, int i);
 
-    static std::string getUpperLineFromUser();
+    static std::string GetUpperLineFromUser();
 
-    static int stringToInt(std::string numString);
-    static Game* getGame(int index, List<Game*> games);
+    static int StringToInt(std::string numString);
+    static Game* GetGame(int index, List<Game*> games);
 
-    static int returnRandomNumber();
-    static float calculatePercentage(float num1, float num2);
+    static int ReturnRandomNumber();
+    static float CalculatePercentage(float num1, float num2);
+    User* DeleteUserFromList(int index, List<Account*> accounts);
     //static int userGameChoice;
 private:
     

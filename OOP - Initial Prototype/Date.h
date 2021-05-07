@@ -7,15 +7,15 @@ class Date
 public:
     Date(int d = 0, int m = 0, int y = 0);
 
-    void setCurrentDay(int d);
-    void setCurrentMonth(int m);
-    void setCurrentYear(int y);
+    void SetCurrentDay(int d);
+    void SetCurrentMonth(int m);
+    void SetCurrentYear(int y);
 
-    int const getCurrentDay() const;
-    int const getCurrentMonth() const;
-    int const getCurrentYear() const;
+    int const GetCurrentDay() const;
+    int const GetCurrentMonth() const;
+    int const GetCurrentYear() const;
 
-    std::string displayCurrentDate();
+    std::string DisplayCurrentDate();
 
 
 

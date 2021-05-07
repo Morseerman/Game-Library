@@ -28,9 +28,9 @@ bool LoginMenu::HandleChoice(std::string choice)
 	std::cout << "  -= LOGIN =-       \n";
 	std::cout << std::endl;
 	std::cout << "Enter Password\n";
-	std::string inputAccountPassword = Utils::getLineFromUser();
+	std::string inputAccountPassword = Utils::GetLineFromUser();
 
-	app->accounts.first()->users.first()->promote();
+	app->accounts.first()->users.first()->Promote();
 
 	//logging into account
 	if (app->LoginAccount(choice, inputAccountPassword) == true)
@@ -46,16 +46,16 @@ bool LoginMenu::HandleChoice(std::string choice)
 		}
 		app->LoginUser(choice, "password");
 
-		std::string inputOption = Utils::getLineFromUser();
+		std::string inputOption = Utils::GetLineFromUser();
 		
 		//logging into user
-		User* selectedUser = Utils::getUserFromList(Utils::stringToInt(inputOption), app->accounts);
+		User* selectedUser = Utils::GetUserFromList(Utils::StringToInt(inputOption), app->accounts);
 		system("CLS");
 		std::cout << "  -= LOGIN =-       \n";
 		std::cout << std::endl;
 		std::cout << "Welcome: " << selectedUser->GetUsername() << ". Please enter your password.\n";
 
-		std::string inputUserPassword = Utils::getLineFromUser(); 
+		std::string inputUserPassword = Utils::GetLineFromUser(); 
 		if (inputUserPassword == selectedUser->GetPassword())
 		{
 			//Correct User Password
@@ -63,7 +63,7 @@ bool LoginMenu::HandleChoice(std::string choice)
 		}
 		else
 		{
-			std::string ballsack = Utils::getLineFromUser();
+			std::string holdPage = Utils::GetLineFromUser();
 		}
 		
 		return true;

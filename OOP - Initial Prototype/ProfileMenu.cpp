@@ -14,17 +14,16 @@ void ProfileMenu::OutputOptions()
 	//}
 
 	//All User Options
-	std::cout << "Credits: " << app->GetCurrentUser()->getCredits() << std::endl;
+	std::cout << "Credits: " << app->GetCurrentUser()->GetCredits() << std::endl;
 	std::cout << std::endl;
 	std::cout << "I) Purhcase 1 Credit" << std::endl;
 	std::cout << "O) Purhcase 10 Credit" << std::endl;
 	std::cout << "P) Purhcase 100 Credit" << std::endl;
 
 	//Admin UserOptions
-	if (app->GetCurrentUser()->isAdmin())
+	if (app->GetCurrentUser()->IsAdmin())
 	{
-		std::cout << "\nC) Create user" << std::endl;
-		std::cout << "D) Delete user\n" << std::endl;
+		std::cout << "\nC) Create user" << std::endl;		
 	}
 
 
@@ -38,32 +37,28 @@ void ProfileMenu::OutputOptions()
 bool ProfileMenu::HandleChoice(std::string choice)
 {
     //if(choice == app->GetCurrentUser()->library)
-    int intChoice = Utils::stringToInt(choice);
+    int intChoice = Utils::StringToInt(choice);
 
     //Admin Choices
 
-    if (choice == "C" && app->GetCurrentUser()->isAdmin())
+    if (choice == "C" && app->GetCurrentUser()->IsAdmin())
     {
         std::cout << "Enter Username\n";
-        std::string newUserName = Utils::getLineFromUser();
+        std::string newUserName = Utils::GetLineFromUser();
 
         std::cout << "Enter Password\n";
-        std::string newPassword = Utils::getLineFromUser();
+        std::string newPassword = Utils::GetLineFromUser();
         
         app->accounts.first()->users.addAtEnd(new Player(newUserName, newPassword, (2019, 07, 19), 500));
         std::cout << "Account Created";
-        std::string nextChoice = Utils::getLineFromUser();
+        std::string nextChoice = Utils::GetLineFromUser();
     }
-    else if (choice == "D" && app->GetCurrentUser()->isAdmin())
-    {
-        std::cout << "Account deleated";
-        std::string nextChoice = Utils::getLineFromUser();
-    }
+    
 
     //All User Choices
 
     if (choice == "I" || "O" || "P") {
-        app->GetCurrentUser()->incrementCredits(choice);
+        app->GetCurrentUser()->IncrementCredits(choice);
         if (choice == "B") {
             return true;
         }
@@ -77,19 +72,19 @@ bool ProfileMenu::HandleChoice(std::string choice)
                 std::cout << "1) Play\n";
                 std::cout << "2) Like\n";
                 std::cout << "3) Dislike\n";
-                std::string nextChoice = Utils::getLineFromUser();
+                std::string nextChoice = Utils::GetLineFromUser();
 
                 if (nextChoice == "1")
                 {
-                    app->GetCurrentUser()->library[i]->addPlayTime(Utils::returnRandomNumber());
+                    app->GetCurrentUser()->library[i]->addPlayTime(Utils::ReturnRandomNumber());
                 }
                 else if (nextChoice == "2")
                 {
                     for (int j = 0; j < app->GetStore().games.length(); j++)
                     {
-                        if (app->GetCurrentUser()->library[i]->getGame()->GetName() == Utils::getGame(j, app->GetStore().games)->GetName())
+                        if (app->GetCurrentUser()->library[i]->getGame()->GetName() == Utils::GetGame(j, app->GetStore().games)->GetName())
                         {
-                            Utils::getGame(j, app->GetStore().games)->addLike();
+                            Utils::GetGame(j, app->GetStore().games)->addLike();
                         }
                     }
 
@@ -98,9 +93,9 @@ bool ProfileMenu::HandleChoice(std::string choice)
                 {
                     for (int j = 0; j < app->GetStore().games.length(); j++)
                     {
-                        if (app->GetCurrentUser()->library[i]->getGame()->GetName() == Utils::getGame(j, app->GetStore().games)->GetName())
+                        if (app->GetCurrentUser()->library[i]->getGame()->GetName() == Utils::GetGame(j, app->GetStore().games)->GetName())
                         {
-                            Utils::getGame(j, app->GetStore().games)->addDislike();
+                            Utils::GetGame(j, app->GetStore().games)->addDislike();
                         }
                     }
                 }

@@ -11,15 +11,15 @@ class User
 		User(const std::string&, const std::string&, const Date&, int);
 		virtual ~User();
 		const std::string& GetUsername() const;
-		std::vector<LibraryItem*> getLibrary();
+		std::vector<LibraryItem*> GetLibrary();
 		std::vector<LibraryItem*> library;
 		const std::string& GetPassword() const;
-		const int getCredits() const;
-		int incrementCredits(std::string choice);
-		int subtractCredits(int amount);
-		bool isAdmin();
-		void promote();
-		void demote();
+		const int GetCredits() const;
+		int IncrementCredits(std::string choice);
+		int SubtractCredits(int amount);
+		bool IsAdmin();
+		void Promote();
+		void Demote();
 		
 	private:
 		std::string username;

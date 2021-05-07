@@ -16,7 +16,7 @@ class Application
 		Account* GetCurrentAccount() const;
 		User* GetCurrentUser() const;
 		void setCurrentUser(User* aUser);
-		void addNewUser();
+		
 
 		Store& GetStore();
 

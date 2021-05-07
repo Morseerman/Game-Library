@@ -12,10 +12,10 @@ void PurchaseMenu::OutputOptions()
 	{
 		if (i == userGameChoice) 
 		{
-			std::cout << "Description: " << Utils::getGame(i, app->GetStore().games)->GetDescription() << std::endl;
-			std::cout << "Age Rating: " << Utils::getGame(i, app->GetStore().games)->getAgeRating() << std::endl;
-			std::cout << "Price: " << Utils::getGame(i, app->GetStore().games)->GetCost() << std::endl;			
-			std::cout << "Rating: " << Utils::getGame(i, app->GetStore().games)->getRating(Utils::getGame(i, app->GetStore().games)->getLikes(), Utils::getGame(i, app->GetStore().games)->getDislikes()) << "%" << std::endl;
+			std::cout << "Description: " << Utils::GetGame(i, app->GetStore().games)->GetDescription() << std::endl;
+			std::cout << "Age Rating: " << Utils::GetGame(i, app->GetStore().games)->getAgeRating() << std::endl;
+			std::cout << "Price: " << Utils::GetGame(i, app->GetStore().games)->GetCost() << std::endl;			
+			std::cout << "Rating: " << Utils::GetGame(i, app->GetStore().games)->getRating(Utils::GetGame(i, app->GetStore().games)->getLikes(), Utils::GetGame(i, app->GetStore().games)->getDislikes()) << "%" << std::endl;
 			std::cout << std::endl;
 			std::cout << std::endl;
 			std::cout << "P) Purchase game                  B) Back";
@@ -34,32 +34,32 @@ bool PurchaseMenu::HandleChoice(std::string choice)
 {
 	if (choice == "P") {
 		for (int i = 1; i < app->GetStore().games.length(); i++) {
-			if (Utils::getGame(i, app->GetStore().games)->getId() == userGameChoice - 1) {
+			if (Utils::GetGame(i, app->GetStore().games)->getId() == userGameChoice - 1) {
 				//conditions for buying the game
-				if (Utils::getGame(i, app->GetStore().games)->GetCost() > app->GetCurrentUser()->getCredits()) {
+				if (Utils::GetGame(i, app->GetStore().games)->GetCost() > app->GetCurrentUser()->GetCredits()) {
 					std::cout << "You have insufficient funds to purchase this game" << std::endl;
-					Utils::getLineFromUser();
+					Utils::GetLineFromUser();
 					return false;
 				}
 				else {
 					for (int i = 0; i < app->GetCurrentUser()->library.size(); i++) {
-						if (app->GetCurrentUser()->library[i]->getGame()->GetName() == Utils::getGame(userGameChoice, app->GetStore().games)->GetName()) {
+						if (app->GetCurrentUser()->library[i]->getGame()->GetName() == Utils::GetGame(userGameChoice, app->GetStore().games)->GetName()) {
 							std::cout << "You already own this game" << std::endl;
-							Utils::getLineFromUser();
+							Utils::GetLineFromUser();
 							return false;
 						}
 					}
 					time_t t = time(NULL);
 					tm* timePtr = localtime(&t);
-					app->GetCurrentUser()->library.push_back(new LibraryItem(10, (timePtr->tm_mday, timePtr->tm_mon, timePtr->tm_year), Utils::getGame(userGameChoice, app->GetStore().games), 0));
-					app->GetCurrentUser()->subtractCredits(Utils::getGame(i, app->GetStore().games)->GetCost());
+					app->GetCurrentUser()->library.push_back(new LibraryItem(10, (timePtr->tm_mday, timePtr->tm_mon, timePtr->tm_year), Utils::GetGame(userGameChoice, app->GetStore().games), 0));
+					app->GetCurrentUser()->SubtractCredits(Utils::GetGame(i, app->GetStore().games)->GetCost());
 					std::cout << "Your purchase is successful" << std::endl;
-					Utils::getLineFromUser();
+					Utils::GetLineFromUser();
 					std::fstream dataFile;
 					std::string line;
 					std::string strGameId, strDay, strMon, strYear;
 					std::stringstream ssgameId, ssday, ssmon, ssyear;
-					int gameId = Utils::getGame(i, app->GetStore().games)->getId();
+					int gameId = Utils::GetGame(i, app->GetStore().games)->getId();
 					int day = timePtr->tm_mday;
 					int mon = timePtr->tm_mon;
 					int year = timePtr->tm_year;
