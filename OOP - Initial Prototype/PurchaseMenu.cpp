@@ -54,6 +54,28 @@ bool PurchaseMenu::HandleChoice(std::string choice)
 					app->GetCurrentUser()->library.push_back(new LibraryItem(10, (timePtr->tm_mday, timePtr->tm_mon, timePtr->tm_year), Utils::getGame(i, app->GetStore().games), 0));
 					app->GetCurrentUser()->subtractCredits(Utils::getGame(i, app->GetStore().games)->GetCost());
 					std::cout << "Your purchase is successful" << std::endl;
+					std::fstream dataFile;
+					std::string strGameId, strDay, strMon, strYear;
+					std::stringstream ssgameId, ssday, ssmon, ssyear;
+					int gameId = Utils::getGame(i, app->GetStore().games)->getId();
+					int day = timePtr->tm_mday;
+					int mon = timePtr->tm_mon;
+					int year = timePtr->tm_year;
+					ssgameId << gameId;
+					ssgameId >> strGameId;
+					ssday << day;
+					ssday >> strDay;
+					ssmon << mon;
+					ssmon >> strMon;
+					ssyear << year;
+					ssyear >> strYear;
+
+					
+					dataFile.open("data.txt", std::ios::app);
+					dataFile << "\nLIBRARY-ITEM\n";
+					dataFile << strGameId + "\n";
+					dataFile << strYear + "-" + strMon + "-" + strYear + "\n";
+					dataFile << "0";
 					Utils::getLineFromUser();
 					return true;
 				}
