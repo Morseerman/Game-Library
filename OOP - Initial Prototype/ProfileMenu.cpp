@@ -30,52 +30,57 @@ bool ProfileMenu::HandleChoice(std::string choice)
 	//if(choice == app->GetCurrentUser()->library)
 	int intChoice = Utils::stringToInt(choice);
 
+	if (choice == "I" || "O" || "P") {
+		app->GetCurrentUser()->incrementCredits(choice);
+		if (choice == "B") {
+			return true;
+		}
+
+	}
+
 	for (int i = 0; i < app->GetCurrentUser()->library.size(); i++) {
-		if (i == intChoice) 
-		{
-			std::cout << "1) Play\n";
-			std::cout << "2) Like\n";
-			std::cout << "3) Dislike\n";
-			std::string nextChoice = Utils::getLineFromUser();
-			
-			if (nextChoice == "1")
+		if ((choice != "P") && (choice != "O") && (choice != "I")) {
+			if (i == intChoice)
 			{
-				app->GetCurrentUser()->library[i]->addPlayTime(Utils::returnRandomNumber());
-			}
-			else if (nextChoice == "2")
-			{
-				for (int j = 0; j < app->GetStore().games.length(); j++)
+				std::cout << "1) Play\n";
+				std::cout << "2) Like\n";
+				std::cout << "3) Dislike\n";
+				std::string nextChoice = Utils::getLineFromUser();
+
+				if (nextChoice == "1")
 				{
-					 if (app->GetCurrentUser()->library[i]->getGame()->GetName() == Utils::getGame(j, app->GetStore().games)->GetName())
-					 {
-						 Utils::getGame(j, app->GetStore().games)->addLike();						 
-					 }
+					app->GetCurrentUser()->library[i]->addPlayTime(Utils::returnRandomNumber());
 				}
-				
-			}
-			else if (nextChoice == "3")
-			{
-				for (int j = 0; j < app->GetStore().games.length(); j++)
+				else if (nextChoice == "2")
 				{
-					if (app->GetCurrentUser()->library[i]->getGame()->GetName() == Utils::getGame(j, app->GetStore().games)->GetName())
+					for (int j = 0; j < app->GetStore().games.length(); j++)
 					{
-						Utils::getGame(j, app->GetStore().games)->addDislike();
+						if (app->GetCurrentUser()->library[i]->getGame()->GetName() == Utils::getGame(j, app->GetStore().games)->GetName())
+						{
+							Utils::getGame(j, app->GetStore().games)->addLike();
+						}
+					}
+
+				}
+				else if (nextChoice == "3")
+				{
+					for (int j = 0; j < app->GetStore().games.length(); j++)
+					{
+						if (app->GetCurrentUser()->library[i]->getGame()->GetName() == Utils::getGame(j, app->GetStore().games)->GetName())
+						{
+							Utils::getGame(j, app->GetStore().games)->addDislike();
+						}
 					}
 				}
+
+				return false;
 			}
-
-			return false;
 		}
+		
 	}
 
-
-	app->GetCurrentUser()->incrementCredits(choice);
-	if (choice == "B") {
-		return true;
-	}
-	else {
-		return false;
-	}
+	return false;
+	
 }
 
 
