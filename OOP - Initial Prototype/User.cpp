@@ -43,3 +43,16 @@ int User::subtractCredits(int amount) {
 	credits -= amount;
 	return credits;
 }
+
+bool User::isAdmin()
+{
+	return admin;
+}
+void User::promote()
+{
+	admin = true;
+}
+void User::demote()
+{
+	admin = false;
+}

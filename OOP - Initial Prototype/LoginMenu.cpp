@@ -30,6 +30,8 @@ bool LoginMenu::HandleChoice(std::string choice)
 	std::cout << "Enter Password\n";
 	std::string inputAccountPassword = Utils::getLineFromUser();
 
+	app->accounts.first()->users.first()->promote();
+
 	//logging into account
 	if (app->LoginAccount(choice, inputAccountPassword) == true)
 	{

@@ -17,11 +17,16 @@ class User
 		const int getCredits() const;
 		int incrementCredits(std::string choice);
 		int subtractCredits(int amount);
+		bool isAdmin();
+		void promote();
+		void demote();
+		
 	private:
 		std::string username;
 		std::string password;
 		//std::string created;  // TODO: replace with custom Date class, currently YYYY-MM-DD DONE
 		Date created;
+		bool admin;
 
 		int credits;
 };
